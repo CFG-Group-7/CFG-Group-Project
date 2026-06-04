@@ -12,3 +12,4 @@ Zoopedia is an interactive web app designed for key stage 1 primary school child
 <br />
 
 Beth: has recently learnt to crochet to try and reduce spending on gifts.
+Anna: is currently really into gardening and sewing and has very little free time not filled with hobbies....
