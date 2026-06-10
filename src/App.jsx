@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
     <>
       <h1>Welcome to Zoopedia</h1>
     </>
-  )
+  );
 }
 
 export default App;
