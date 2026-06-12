@@ -12,6 +12,8 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@netlify/vite-plugin": "^2.12.7",
+    "dotenv": "^17.4.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
