@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { findAnimal, formatAnimal } from '../../src/helpers/apiHelpers.js';
 
 export const handler = async (event) => {
     const name = event.queryStringParameters?.name?.trim();
@@ -14,55 +15,75 @@ export const handler = async (event) => {
 
     }
     try {
+        // fetching the animal data fron the API Ninjas API, using the name of the animal as a query parameter
         const response = await fetch(`https://api.api-ninjas.com/v1/animals?name=${encodeURIComponent(name)}`, {
             headers: {
                 'X-Api-Key': process.env.API_NINJAS_KEY
             }
         });
 
+        if (!response.ok) {
+            return {
+                statusCode: 404,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ error: 'Animal API failed to find the animal' })
+            }
+        }
+
 
         const data = await response.json();
-        const filteredData = data.filter(animal => animal.name.toLowerCase() === name.toLowerCase());
-        // the filter above will ensure we only return the exact match,
-        //  as API has a lot animals that have the name as part of their name
-        //  (for example 'horse' can return 'horse fly')
-        const {
-            name: animalName,
-            locations,
-            characteristics: {
-                prey,
-                name_of_young,
-                group_behavior,
-                habitat,
-                diet,
-                predators,
-                most_distinctive_feature,
-                location,
-                slogan,
-                group,
-                top_speed,
-                lifespan,
-                length,
-                weight
+        const animal = findAnimal(data, name);
+
+        // the find function above will ensure we only return the animaal that matches the seached name exactly,
+        //  this will avoid returning a wrong animal 
+        //  (for example 'horse' could return 'horse fly' if not filtered properly) 
+        if (!animal) {
+            return {
+                statusCode: 404,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ error: 'Cannot find the animal' })
             }
-        } = filteredData[0];
-        const responseData = {
-            animalName,
-            locations,
-            characteristics: {
-                prey, name_of_young, group_behavior,
-                habitat, diet, predators, most_distinctive_feature, location, slogan, group,
-                top_speed, lifespan, length, weight
+        }
+
+        // destructuring the data and keeping only the relevant properties 
+        const formattedAnimal = formatAnimal(animal);
+
+        // get the image from the wikipedia API  
+        const wikiResponse = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(formattedAnimal.animalName)}`);
+        // if we cant find the image we will set it to null 
+        if (wikiResponse.ok) {
+
+            const wikiData = await wikiResponse.json();
+            formattedAnimal.images = {
+                thumbnail: wikiData.thumbnail.source || null,
+                fullImage: wikiData.originalimage.source || null
+            };
+
+        }
+        // not returnning a 404 error here because we can replace the failed images with placeholder images
+        else {
+            formattedAnimal.images = {
+                thumbnail: null,
+                fullImage: null
+
             }
-        };
+
+        }
+
+        // finally return the entire parsed object with all the data we got from both APIs 
         return {
-            statusCode: response.status,
+            statusCode: 200,
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(responseData)
+            body: JSON.stringify(formattedAnimal)
         }
     }
+    // catch any error during the fetch process 
     catch (error) {
         return {
             statusCode: 500,
