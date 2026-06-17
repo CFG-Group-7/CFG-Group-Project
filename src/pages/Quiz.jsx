@@ -1,67 +1,94 @@
 // use hook usestate
-import { useState } from "react";
-// export quiz so it can be used elsewhere
-export default function Quiz() {
+import React, { useState } from "react";
+// import question bank
+import qBank from '../components/Quiz/questionBank'
+// import Questions logic
+import Questions from '../components/Quiz/Questions'
+//import Score logic
+import Score from '../components/Quiz/Score'
+
+
+const Quiz = () => {
+
     // 1. Current question index number
     const [currentQ, setCurrentQ] = useState(0);
 
-    // 2. Record score
+    // 2. Import questions
+    const [questions] = useState(qBank);
+
+    // 3. Record score
     const [score, setScore] = useState(0);
 
-    // 3. Show answers when all questions have been attempted
+    // 4. Show answers when all questions have been attempted
     const [quizComplete, setQuizComplete] = useState(false);
 
-    // array of quiz questions
-    const questions = [
-    {
-    question: "What colour are Flamingos?",
-    options: ["Pink", "White", "Green", "Blue"],
-    answer: "Pink",
-    },
-    {
-    question: "What pattern does a zebra have on its body?",
-    options: ["Big Spots", "Single colour", "Little Spots", "Stripes"],
-    answer: "Stripes",
-    },
-    {
-    question: "Which is the tallest animal?",
-    options: ["Elephant", "Giraffe", "Penguin", "Panda"],
-    answer: "Giraffe",
-    },
-    {
-    question: "What do Pandas eat lots of?",
-    options: ["Grass", "Bananas", "Bamboo", "Pasta"],
-    answer: "Bamboo",
-    },
-    {
-    question: "Where do kangaroos keep their babies?",
-    options: ["Pouch", "Hand", "Tree", "Nest"],
-    answer: "Pouch",
-    },
-    ];
+    // 5. Keep track of selected answer
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-    // when user clicks an answer
-    const handleClick = (chosen) => {
-    // check if correct and update score
-        if (chosen === questions[currentQ].answer) {
-        setScore(score + 1);
+    // 6. Keep track of whether quiz has started
+    const [quizStarted, setQuizStarted] = useState(false);
+
+
+    // Save choice when they click an answer
+    const handleAnswerClick = (chosen) => {
+        setSelectedAnswer(chosen);
+        // score will be calculated when moving on to prevent duplicate calculations
+    };
+
+    //Handle moving on question and updating score
+    const handleNextQuestion = () => {
+
+        //calculate score
+        if (selectedAnswer === questions[currentQ].answer) {
+            setScore(prevScore => prevScore + 1);
         }
-    // move to next question
-    const nextQuestionNumber = currentQ + 1;
-    // if not already on the last question, move to the next question
-    if (nextQuestionNumber < questions.length) {
-        setCurrentQ(nextQuestionNumber);
-    }   
-        // else end quiz
-        else {
-            setQuizComplete(true);
-        };
+        //reset selection
+        setSelectedAnswer(null);
+
+        //move to next question
+        setCurrentQ(prevQ => prevQ + 1);
+    };
+
+    return (
+        <div>
+            <h1>Quiz</h1>
+            <p>Can you answer 5 questions about zoo animals?</p>
+            <div>
+                {/* If quiz not started, display initial page */}
+                {!quizStarted ? (
+                    <div>
+                        <div>
+                            <h2>Begin Quiz</h2>
+                            {/* When click button, change startQuiz to true */}
+                            <button
+                            onClick={startQuiz}
+                            >
+                            Go!
+                            </button>
+                        </div>
+                    </div>
+                // Else display questions up until the end of the questions
+                ) : currentQ < questions.length ? (
+                    <Questions
+                        questions={questions}
+                        handleNextQuestion={handleNextQuestion}
+                        currentQuestion={currentQuestion}
+                        handleAnswerClick={handleAnswerClick}
+                        quizComplete={currentQ === questions.length - 1}
+                    />
+                ) : (
+                //Else display ScoreCard
+                    <Score
+                        score={score}
+                        setScore={setScore}
+                        setCurrentQ={setCurrentQ}
+                        setQuizStarted={setQuizStarted}
+                        setQuizComplete={setQuizComplete}
+                    />
+                )};
+            </div>
+        </div>
+    );
 };
 
-// function restart quiz
-const restart = () => {
-    setCurrentQ(0);
-    setScore(0);
-    setQuizComplete(false);
-};
-}
+export default Quiz;
