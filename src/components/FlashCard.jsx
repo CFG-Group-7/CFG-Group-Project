@@ -1,8 +1,8 @@
 export default function FlashCard({ animal }) {
 
-    if (!animal || typeof animal === "string") {
-        return <p>Loading...</p>;
-    }
+    // if (!animal) {
+    //     return <p>Loading...</p>;
+    // }
 
 
     return (
