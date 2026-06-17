@@ -11,8 +11,6 @@ const AnimalProvider = ({ children }) => {
     // }
     const cacheSearchData = (data) => {
         setSearchData((prev) => {
-
-
             const existingIndex = prev.findIndex((animal) => animal.animalName.toLowerCase() === data.animalName.toLowerCase())
             const updatedList = [...prev];
             // If the animal name is already in the list, take it out if its current spot 
@@ -23,6 +21,22 @@ const AnimalProvider = ({ children }) => {
 
             // put the animal to the front of the list 
             updatedList.unshift(data);
+
+            // keeping track of only 10 most recent animals to not allow the context overgrow 
+            return updatedList.slice(0, 10);
+        })
+
+        setAnimals((prev) => {
+            const existingIndex = prev.findIndex((animal) => animal.toLowerCase() === data.animalName.toLowerCase())
+            const updatedList = [...prev];
+            // If the animal name is already in the default list, take it out if its current spot 
+            if (existingIndex !== -1) {
+                updatedList.splice(existingIndex, 1);
+
+            }
+
+            // put the animal to the front of the default list 
+            updatedList.unshift(data.animalName);
 
             // keeping track of only 10 most recent animals to not allow the context overgrow 
             return updatedList.slice(0, 10);
