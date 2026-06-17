@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import Search from './pages/Search.jsx';
-import FlashCards from './pages/FlashCards.jsx';
+import FlashCardsPage from './pages/FlashCardsPage.jsx';
 import './index.css';
 import App from './App.jsx';
 import { Routes, Route } from "react-router-dom"
@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/flash-cards' element={<FlashCards />} />
+          <Route path='/flash-cards' element={<FlashCardsPage />} />
         </Routes>
       </AnimalProvider>
     </StrictMode>
