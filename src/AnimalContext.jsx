@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const AnimalContext = createContext();
 
 const AnimalProvider = ({ children }) => {
-    const [animals, setAnimals] = useState(["camel", "zebra", "elephant", "owl", "kangaroo"]);
+    const [animals, setAnimals] = useState(["camel", "zebra", "elephant", "owl", "kangaroo", "lion", "donkey", "alpaca"]);
 
     const [searchData, setSearchData] = useState([]); // to keep track of the search result
     // const setAnimalData = (index, data) => {
