@@ -36,7 +36,6 @@ npm i
 Then start the application using the following command: 
 npm run dev 
 
-`npm install react-router-dom`
 
 
 ## Environment Variables
