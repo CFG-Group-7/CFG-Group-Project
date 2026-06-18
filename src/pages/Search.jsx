@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useAnimals } from "../AnimalContext";
 
 export default function Search() {
+    // these are context setters for flashcards 
+    const { cacheSearchData, updateDefaultAnimals } = useAnimals();
     // Stores the animal searched and updates the value when the user types
     const [animal, setAnimal] = useState("");
     // Stores the data from the API and saves it so it can be displayed
@@ -19,6 +22,10 @@ export default function Search() {
         const data = await res.json();
         console.log("API RESPONSE:", data);
         setResult(data);
+
+        // these are required for the flashcards to work - they set the context 
+        cacheSearchData(data);
+        updateDefaultAnimals(data)
     };
 
     // Array storing animals for the short cut search buttons
@@ -32,7 +39,7 @@ export default function Search() {
                 onChange={(e) => setAnimal(e.target.value)}
                 placeholder="Search animal..."
             />
-            
+
             <button onClick={() => search(animal)}>
                 Search
             </button>
@@ -40,7 +47,7 @@ export default function Search() {
             {/*Short cut search button*/}
             <div>
                 {quickAnimals.map((animalName) => (
-                    <button 
+                    <button
                         key={animalName}
                         onClick={() => search(animalName.toLowerCase())}
                     >
@@ -61,7 +68,7 @@ export default function Search() {
                                 maxWidth: "400px",
                                 width: "100%"
                             }}
-                            />
+                        />
                     )}
                     <p>Locations: {result.locations?.join(", ")}</p>
                     <p>Habitat: {result.characteristics?.habitat}</p>
