@@ -51,5 +51,4 @@ Test will be run in `jest`
 To run tests, use the following command: 
 npm t
 
-`npm install jest`
 
