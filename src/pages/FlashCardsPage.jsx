@@ -59,18 +59,23 @@ export default function FlashCardsPage() {
 
     }
 
-
-
     return (
         <>
-            <h1>FLASH CARDS COMPONENT</h1>
-            <button onClick={handlePreviousCard}>Previous</button>
-            {animalData ?
-                <FlashCard animal={animalData} /> : <p>Loading...please wait</p>}
-            <button onClick={handleNextCard}>Next</button>
-            <div>
-                <button onClick={handleRestart}>RESTART</button>
+            <h1>FLASH CARDS</h1>
+            <p>Revise what you've learned</p>
+
+            <div className="flex items-center justify-center">
+                <button className="bg-blue-500 hover:bg-blue-700 mx-10 text-white font-bold py-2 px-4 rounded-full" onClick={handlePreviousCard}>Previous</button>
+                {animalData ? <FlashCard animal={animalData} /> : <p>Loading...please wait</p>}
+
+
+                <button className="bg-blue-500 hover:bg-blue-700 text-white mx-10 font-bold py-2 px-4 rounded-full" onClick={handleNextCard}>Next</button>
+            </div>
+            <div className="flex items-center justify-center" >
+
+                <button className="bg-green-500 hover:bg-green-700 my-10 text-white font-bold py-2 px-4 rounded-full" onClick={handleRestart}>RESTART</button>
             </div>
         </>
     )
 }
+
