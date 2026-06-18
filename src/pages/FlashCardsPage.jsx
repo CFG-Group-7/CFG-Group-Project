@@ -5,6 +5,7 @@ import FlashCard from "../components/FlashCard";
 
 
 
+
 export default function FlashCardsPage() {
     const { animals, setAnimals, setAnimalData, setSearchData, searchData, cacheSearchData } = useAnimals(); // array of default animal names from the context 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -60,13 +61,19 @@ export default function FlashCardsPage() {
     }
 
     return (
-        <>
-            <h1>FLASH CARDS</h1>
-            <p>Revise what you've learned</p>
-
+        <div className="h-screen bg-orange-200">
+            <div className="flex flex-col items-center justify-center gap-y-3 pb-5">
+                <h1>Test your knowledge!</h1>
+                <p>
+                    Revise what you've already learned
+                </p>
+            </div>
+            {/* <div className="flex items-centre justify-center place-content-center">
+                <p>Revise what you've already learned</p>
+            </div> */}
             <div className="flex items-center justify-center">
                 <button className="bg-blue-500 hover:bg-blue-700 mx-10 text-white font-bold py-2 px-4 rounded-full" onClick={handlePreviousCard}>Previous</button>
-                {animalData ? <FlashCard animal={animalData} /> : <p>Loading...please wait</p>}
+                {animalData ? <FlashCard animal={animalData} /> : <div className="skeleton h-160 w-120"></div>}
 
 
                 <button className="bg-blue-500 hover:bg-blue-700 text-white mx-10 font-bold py-2 px-4 rounded-full" onClick={handleNextCard}>Next</button>
@@ -75,7 +82,7 @@ export default function FlashCardsPage() {
 
                 <button className="bg-green-500 hover:bg-green-700 my-10 text-white font-bold py-2 px-4 rounded-full" onClick={handleRestart}>RESTART</button>
             </div>
-        </>
+        </div>
     )
 }
 
