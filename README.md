@@ -30,7 +30,11 @@ An app offering basic information about common zoo animals in a range of ways, a
 
 Please note that Zoopedia is a React app run through Node.js. Please ensure these are installed on your machine prior to running the app.
 
-In order to run Zoopedia, you will also need to install the following packages:
+In order to run Zoopedia, you will need to install the dependencies:
+npm i 
+
+Then start the application using the following command: 
+npm run dev 
 
 `npm install react-router-dom`
 
