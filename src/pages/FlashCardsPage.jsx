@@ -68,7 +68,9 @@ export default function FlashCardsPage() {
             {animalData ?
                 <FlashCard animal={animalData} /> : <p>Loading...please wait</p>}
             <button onClick={handleNextCard}>Next</button>
-
+            <div>
+                <button onClick={handleRestart}>RESTART</button>
+            </div>
         </>
     )
 }
