@@ -48,7 +48,8 @@ To run this project, you will need to add the following environment variables to
 ## Running Tests
 
 Test will be run in `jest`
-To run tests, please install the following packages:
+To run tests, use the following command: 
+npm t
 
 `npm install jest`
 
