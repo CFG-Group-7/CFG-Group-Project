@@ -25,8 +25,8 @@ const Quiz = () => {
     // 5. Keep track of whether quiz has started
     const [quizStarted, setQuizStarted] = useState(false);
 
-    // 6. Keep track of whether quiz is complete
-    const [quizComplete, setQuizComplete] = useState(false);
+    // 6. Keep track of last question
+    const [isLastq, setIsLastQ] = useState(false);
 
     //select questionsInUse from question bank
     useEffect(() => {
@@ -83,11 +83,11 @@ const Quiz = () => {
                 // Else display questions up until the end of the questions
                 ) : currentQ < questionsInUse.length ? (
                     <Questions
-                        questions={questionsInUse}
+                        questionsInUse={questionsInUse}
                         handleNextQuestion={handleNextQuestion}
-                        currentQuestion={currentQ}
+                        currentQ={currentQ}
                         handleAnswerClick={handleAnswerClick}
-                        quizComplete={currentQ === questionsInUse.length - 1}
+                        isLastQ={currentQ === questionsInUse.length - 1}
                     />
                 ) : (
                 //Else display ScoreCard
@@ -96,7 +96,7 @@ const Quiz = () => {
                         setScore={setScore}
                         setCurrentQ={setCurrentQ}
                         setQuizStarted={setQuizStarted}
-                        setQuizComplete={setQuizComplete}
+                        setisLastQ={setIsLastQ}
                     />
                 )};
             </div>
