@@ -7,13 +7,14 @@ import './index.css';
 import App from './App.jsx';
 import { Routes, Route } from "react-router-dom"
 import { AnimalProvider } from './AnimalContext.jsx';
+import NavBar from "./components/Navbar"; 
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <StrictMode>
       <AnimalProvider>
 
-        {/* nav bar goes here */}
+        <NavBar />
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/search' element={<Search />} />
