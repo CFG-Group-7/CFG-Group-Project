@@ -6,7 +6,7 @@ import React from 'react'
 
  const Score = ({   score, setScore,
                     setCurrentQ, setQuizStarted,
-                    setQuizComplete}) => {
+                    setIsLastQ}) => {
             return (
                 <div>
                     {/* display quiz result */}
@@ -18,7 +18,7 @@ import React from 'react'
                             onClick={() => {    setCurrentQ(0); 
                                                 setScore(0); 
                                                 setQuizStarted(true); 
-                                                setQuizComplete(false);}}
+                                                setIsLastQ(false);}}
                         >
                         Restart Quiz
                         </button>

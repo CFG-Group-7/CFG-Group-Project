@@ -1,5 +1,5 @@
-// use hook usestate
-import React, { useState } from "react";
+// use hook useState & useEffect; import React
+import React, { useState, useEffect } from "react";
 // import question bank
 import qBank from '../components/Quiz/questionBank'
 // import Questions logic
@@ -13,21 +13,29 @@ const Quiz = () => {
     // 1. Current question index number
     const [currentQ, setCurrentQ] = useState(0);
 
-    // 2. Import questions
-    const [questions] = useState(qBank);
+    // 2. Initiate questionsInUse
+    const [questionsInUse, setQuestionsInUse] = useState([]);
 
     // 3. Record score
     const [score, setScore] = useState(0);
 
-    // 4. Show answers when all questions have been attempted
-    const [quizComplete, setQuizComplete] = useState(false);
-
-    // 5. Keep track of selected answer
+    // 4. Keep track of selected answer
     const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-    // 6. Keep track of whether quiz has started
+    // 5. Keep track of whether quiz has started
     const [quizStarted, setQuizStarted] = useState(false);
 
+    // 6. Keep track of last question
+    const [isLastq, setIsLastQ] = useState(false);
+
+    //select questionsInUse from question bank
+    useEffect(() => {
+        //Fisher-Yates shuffle function to randomise the question bank
+        const shuffled = [...qBank].sort(() => 0.5 - Math.random());
+
+        //select first 5 questions from randomised list as the subset to display on this render
+        setQuestionsInUse(shuffled.slice(0,5));
+    }, [quizStarted]);
 
     // Save choice when they click an answer
     const handleAnswerClick = (chosen) => {
@@ -39,7 +47,7 @@ const Quiz = () => {
     const handleNextQuestion = () => {
 
         //calculate score
-        if (selectedAnswer === questions[currentQ].answer) {
+        if (selectedAnswer === questionsInUse[currentQ].answer) {
             setScore(prevScore => prevScore + 1);
         }
         //reset selection
@@ -48,6 +56,11 @@ const Quiz = () => {
         //move to next question
         setCurrentQ(prevQ => prevQ + 1);
     };
+
+    //set start quiz function
+    const startQuiz = () => {
+        setQuizStarted(true);
+    }
 
     return (
         <div>
@@ -68,13 +81,13 @@ const Quiz = () => {
                         </div>
                     </div>
                 // Else display questions up until the end of the questions
-                ) : currentQ < questions.length ? (
+                ) : currentQ < questionsInUse.length ? (
                     <Questions
-                        questions={questions}
+                        questionsInUse={questionsInUse}
                         handleNextQuestion={handleNextQuestion}
-                        currentQuestion={currentQuestion}
+                        currentQ={currentQ}
                         handleAnswerClick={handleAnswerClick}
-                        quizComplete={currentQ === questions.length - 1}
+                        isLastQ={currentQ === questionsInUse.length - 1}
                     />
                 ) : (
                 //Else display ScoreCard
@@ -83,7 +96,7 @@ const Quiz = () => {
                         setScore={setScore}
                         setCurrentQ={setCurrentQ}
                         setQuizStarted={setQuizStarted}
-                        setQuizComplete={setQuizComplete}
+                        setisLastQ={setIsLastQ}
                     />
                 )};
             </div>
