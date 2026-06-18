@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const AnimalContext = createContext();
 
 const AnimalProvider = ({ children }) => {
-    const [animals, setAnimals] = useState(["camel", "zebra", "elephant", "panda", "owl", "kangaroo"]);
+    const [animals, setAnimals] = useState(["camel", "zebra", "elephant", "owl", "kangaroo"]);
 
     const [searchData, setSearchData] = useState([]); // to keep track of the search result
     // const setAnimalData = (index, data) => {
@@ -25,7 +25,10 @@ const AnimalProvider = ({ children }) => {
             // keeping track of only 10 most recent animals to not allow the context overgrow 
             return updatedList.slice(0, 10);
         })
+    };
 
+
+    const updateDefaultAnimals = () => {
         setAnimals((prev) => {
             const existingIndex = prev.findIndex((animal) => animal.toLowerCase() === data.animalName.toLowerCase())
             const updatedList = [...prev];
@@ -45,7 +48,8 @@ const AnimalProvider = ({ children }) => {
 
     }
 
-    return <AnimalContext.Provider value={{ animals, setAnimals, searchData, setSearchData, cacheSearchData }}>{children}</AnimalContext.Provider>
+
+    return <AnimalContext.Provider value={{ animals, setAnimals, searchData, setSearchData, cacheSearchData, updateDefaultAnimals }}>{children}</AnimalContext.Provider>
 
 }
 

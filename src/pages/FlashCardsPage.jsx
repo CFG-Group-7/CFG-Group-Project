@@ -12,13 +12,34 @@ export default function FlashCardsPage() {
     // we are checking if Rachel has camels, if she doesnt then we have to go and find them ourselves 
     const animalData = searchData.find((animal) => animal.animalName.toLowerCase() === currentName.toLowerCase()); // looks at each animal name from the search results and checks if it exists in the list of animal names from the default list 
 
-    const [isloading, setLoanding] = useState(true);
+
     const [error, setError] = useState(null);
 
 
+    const handleNextCard = () => {
+        setCurrentIndex((current) => {
+            if (current === animals.length - 1) {
+                return 0; // if we reached the end of the animals array then we should start from the beginning 
+            }
+            return current + 1; // increases the index by 1 and goes to the next animal in the array 
+        })
+    };
+    const handlePreviousCard = () => {
+        setCurrentIndex((current) => {
+            if (current === 0) {
+                return animals.length - 1;
+            }
+            return current - 1;
+        })
+    }
+
+    const handleRestart = () => {
+        setCurrentIndex(0);
+    }
+
     useEffect(() => {
         if (animalData) return;// a guard that checks if we already have the data for the animal 
-        setLoanding(true)
+
 
         fetchAnimal(currentName)
             .then((data) => {
@@ -26,17 +47,10 @@ export default function FlashCardsPage() {
             }).catch((err) => {
                 setError(true);
             }).finally(() => {
-                setLoanding(false);
+
             })
     }, [currentName, animalData, cacheSearchData]);
 
-
-    if (isloading) {
-        return (
-            <p>Loading...please wait</p>
-
-        )
-    }
     if (error) {
         return (
             <p>Sorry an error occurred </p>
@@ -45,10 +59,16 @@ export default function FlashCardsPage() {
 
     }
 
+
+
     return (
         <>
             <h1>FLASH CARDS COMPONENT</h1>
-            <FlashCard animal={animalData} />
+            <button onClick={handlePreviousCard}>Previous</button>
+            {animalData ?
+                <FlashCard animal={animalData} /> : <p>Loading...please wait</p>}
+            <button onClick={handleNextCard}>Next</button>
+
         </>
     )
 }
