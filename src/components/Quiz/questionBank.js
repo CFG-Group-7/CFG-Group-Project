@@ -9,7 +9,7 @@ const qBank = [
     },
     {
     question: "What pattern does a zebra have on its body?",
-    options: ["Big Spots", "Single colour", "Little Spots", "Stripes"],
+    options: ["Big Spots", "Single Colour", "Little Spots", "Stripes"],
     answer: "Stripes",
     id: 2
     },
@@ -38,7 +38,7 @@ const qBank = [
     id: 6
     },
        {
-    question: "How many teeth does a shark have?",
+    question: "How many teeth does an average shark have?",
     options: ["3", "30", "300", "3000"],
     answer: "3000",
     id: 7
