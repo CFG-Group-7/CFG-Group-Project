@@ -11,7 +11,7 @@ export const handler = async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ error: 'Animal name is required' })
-        }
+        };
 
     }
     try {
@@ -29,11 +29,12 @@ export const handler = async (event) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ error: 'Animal API failed to find the animal' })
-            }
+            };
         }
 
 
         const data = await response.json();
+
         const animal = findAnimal(data, name);
 
         // the find function above will ensure we only return the animaal that matches the seached name exactly,
@@ -46,11 +47,13 @@ export const handler = async (event) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ error: 'Cannot find the animal' })
-            }
+            };
         }
 
         // destructuring the data and keeping only the relevant properties 
         const formattedAnimal = formatAnimal(animal);
+
+        console.log(formattedAnimal);
 
         // get the image from the wikipedia API  
         const wikiResponse = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(formattedAnimal.animalName)}`);
@@ -70,10 +73,10 @@ export const handler = async (event) => {
                 thumbnail: null,
                 fullImage: null
 
-            }
+            };
 
         }
-
+        console.log(formattedAnimal)
         // finally return the entire parsed object with all the data we got from both APIs 
         return {
             statusCode: 200,
@@ -81,7 +84,7 @@ export const handler = async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formattedAnimal)
-        }
+        };
     }
     // catch any error during the fetch process 
     catch (error) {
@@ -91,7 +94,7 @@ export const handler = async (event) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ error: 'Failed to fetch data' })
-        }
+        };
     }
-}
+};
 

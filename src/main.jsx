@@ -5,7 +5,7 @@ import Search from './pages/Search.jsx';
 import FlashCardsPage from './pages/FlashCardsPage.jsx';
 import './index.css';
 import App from './App.jsx';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import { AnimalProvider } from './AnimalContext.jsx';
 import NavBar from "./components/Navbar"; 
 
