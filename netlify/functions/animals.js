@@ -53,7 +53,7 @@ export const handler = async (event) => {
         // destructuring the data and keeping only the relevant properties 
         const formattedAnimal = formatAnimal(animal);
 
-        console.log(formattedAnimal);
+
 
         // get the image from the wikipedia API  
         const wikiResponse = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(formattedAnimal.animalName)}`);
@@ -76,7 +76,7 @@ export const handler = async (event) => {
             };
 
         }
-        console.log(formattedAnimal)
+
         // finally return the entire parsed object with all the data we got from both APIs 
         return {
             statusCode: 200,
