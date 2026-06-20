@@ -16,7 +16,7 @@ function App() {
             <FeatureCard
                 title="Flash Cards"
                 description=" Flip cards to learn fun facts about 15 different zoo animals!"
-                pageLink="/flash-cards-page" />
+                pageLink="/flash-cards" />
 
             <FeatureCard
                 title="Take a quiz"
