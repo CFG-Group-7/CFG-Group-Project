@@ -2,8 +2,6 @@ import { useState } from 'react';
 import './App.css';
 import FeatureCard from "./components/FeatureCard";
 
-
-
 function App() {
 
   return (
