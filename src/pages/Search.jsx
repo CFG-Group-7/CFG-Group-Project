@@ -25,7 +25,7 @@ export default function Search() {
 
         // these are required for the flashcards to work - they set the context 
         cacheSearchData(data);
-        updateDefaultAnimals(data)
+        updateDefaultAnimals(data);
     };
 
     // Array storing animals for the short cut search buttons

@@ -2,7 +2,7 @@
 import './App.css';
 import FeatureCard from "./components/FeatureCard";
 
-function App() {
+export default function App() {
 
     return (
 
@@ -33,4 +33,3 @@ function App() {
     );
 }
 
-export default App;
