@@ -30,8 +30,8 @@ export default function FlashCard({ animal }) {
                 }
             >
                 {/* FRONT — name + image */}
-                <div className="flex inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl bg-white p-6 shadow-xl [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
-                    <h2 className="text-2xl font-bold text-gray-800">
+                <div className="flex inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl bg-blue p-6 shadow-xl [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
+                    <h2 className="text-2xl font-bold text-fontColour">
                         {animal.animalName}
                     </h2>
 
@@ -41,7 +41,7 @@ export default function FlashCard({ animal }) {
                         className="h-129 w-100 object-contain" // object-contain is the only option that works best with our images which have different sizing
                     />
 
-                    <p className="text-sm text-gray-400">Tap to flip</p>
+                    <p className="text-sm text-fontColour">Tap to flip</p>
                 </div>
 
                 {/* BACK — pre-rotated 180° so it faces away until flipped */}
@@ -58,7 +58,7 @@ export default function FlashCard({ animal }) {
                         {facts.map((fact) => (
                             <li
                                 key={fact.label}
-                                className="flex justify-between border-b border-emerald-100 py-1" // the border colour might need to change if the background colour changes 
+                                className="flex justify-between border-b border-blue py-1" // the border colour might need to change if the background colour changes 
                             >
                                 <span className="font-semibold">{fact.label}</span>
                                 <span className="text-right opacity-80">{fact.value}</span>

@@ -3,3 +3,25 @@
 @plugin "daisyui" {
     themes: light --default;
 }
+
+@theme {
+    /* Font colour*/
+    --color-fontColour: #232C25;
+    /* Background green*/
+    --color-pale-green: #E9EDC9;
+    /* Home orange */
+    --color-orange: #FCA311;
+    /* Search red*/
+    --color-red: #E55934;
+    /* Flash Card blue*/
+    --color-blue: #5BC0EB;
+    /* Quiz green*/
+    --color-green: #9BC53D;
+    /* More fun yellow*/
+    --color-yellow: #FDE74C;
+    /* Button dark green*/
+    --color-dark-green: #3B5640;
+    /* Button pale yellow*/
+    --color-pale-yellow: #FEFAE0;
+
+}

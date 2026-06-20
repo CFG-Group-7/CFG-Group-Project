@@ -55,7 +55,7 @@ export default function FlashCardsPage() {
     }
 
     return (
-        <div className="h-screen bg-orange-200">
+        <div className="h-screen bg-pale-green">
             <div className="flex flex-col items-center justify-center gap-y-3 pb-5">
                 <h1>Test your knowledge!</h1>
                 <p>
