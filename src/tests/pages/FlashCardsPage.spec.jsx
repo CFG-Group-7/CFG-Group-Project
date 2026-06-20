@@ -12,7 +12,9 @@ import { AnimalProvider } from '../../AnimalContext';
 vi.mock('../../AnimalContext', async (importOriginal) => {
     const actual = await importOriginal(); // sends the request to the module 
     return {
+        // we don't need to mock all of the functions, so we must 'place back' the default exports and keep them functional
         ...actual,
+        // we only mock the function we need
         fetchAnimal: vi.fn().mockResolvedValue({
             animalName: 'Camel',
             locations: ['Africa', 'Asia', 'Eurasia', 'Oceania'],
@@ -40,7 +42,7 @@ vi.mock('../../AnimalContext', async (importOriginal) => {
     }
 });
 
-describe.only('FlashCardsPage', () => {
+describe('FlashCardsPage', () => {
     const renderWithProvider = () => {
         return render(
             <AnimalProvider>
@@ -48,16 +50,24 @@ describe.only('FlashCardsPage', () => {
             </AnimalProvider>
         );
     };
+
     test('the page renders with default content', async () => {
         renderWithProvider();
 
-
         expect(screen.getByText("Test your knowledge!")).toBeInTheDocument();
-
         expect(screen.getByText("Revise what you've already learned")).toBeInTheDocument();
 
         // expect(await screen.getByText("Camel")).toBeInTheDocument();
+        // expect(await screen.findByText("Camel")).toBeInTheDocument();
+        // expect(await screen.findByRole('heading', { name: "Camel", level: 2 })).toBeInTheDocument();
 
+        // because there are two 'headings' for the animal card (one on the front, one on the back of the card)
+        // we have to select them all using 'findAllByRole' 
+        // which returns more than 1 record
+        const headings = await screen.findAllByRole('heading', { name: "Camel", level: 2 }); // level 2 because it's h2 (h1 would be level 1)
+
+        // there are two h2s in the flashcard component, one for the 'front' and one for the 'back'
+        expect(headings.length).toBe(2);
     });
 
 
