@@ -8,6 +8,7 @@ import App from './App.jsx';
 import { Routes, Route } from "react-router-dom"
 import { AnimalProvider } from './AnimalContext.jsx';
 import NavBar from "./components/Navbar"; 
+import MoreFun from './pages/MoreFun.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='/' element={<App />} />
           <Route path='/search' element={<Search />} />
           <Route path='/flash-cards' element={<FlashCardsPage />} />
+          <Route path="/more-fun" element={<MoreFun />} />
         </Routes>
       </AnimalProvider>
     </StrictMode>
