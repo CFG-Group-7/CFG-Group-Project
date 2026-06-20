@@ -1,5 +1,5 @@
-import { describe, expect, test, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import FlashCardsPage from '../../pages/FlashCardsPage';
 
 import { AnimalProvider } from '../../AnimalContext';
@@ -15,8 +15,8 @@ vi.mock('../../AnimalContext', async (importOriginal) => {
         // we don't need to mock all of the functions, so we must 'place back' the default exports and keep them functional
         ...actual,
         // we only mock the function we need
-        fetchAnimal: vi.fn().mockResolvedValue({
-            animalName: 'Camel',
+        fetchAnimal: vi.fn((name) => Promise.resolve({
+            animalName: name.charAt(0).toUpperCase() + name.slice(1), // the name is set dynamically while the rest of the data is hardcoded
             locations: ['Africa', 'Asia', 'Eurasia', 'Oceania'],
             characteristics: {
                 prey: 'Thorny and Salty Plants, Grass, Grain',
@@ -39,10 +39,23 @@ vi.mock('../../AnimalContext', async (importOriginal) => {
                 fullImage: 'https://upload.wikimedia.org/wikipedia/commons/4/43/07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg'
             }
         })
+        )
     }
+
 });
 
 describe('FlashCardsPage', () => {
+    beforeEach(() => {
+        vi.clearAllMocks(); //resetting the mocks 
+    });
+
+    afterEach(() => {
+        cleanup();
+
+    })
+    const clickNext = () => fireEvent.click(screen.getByRole("button", { name: /next/i }));
+    const clickPrevious = () => fireEvent.click(screen.getByRole("button", { name: /previous/i }));
+    const clickRestart = () => fireEvent.click(screen.getByRole("button", { name: /restart/i }));
     const renderWithProvider = () => {
         return render(
             <AnimalProvider>
@@ -57,9 +70,9 @@ describe('FlashCardsPage', () => {
         expect(screen.getByText("Test your knowledge!")).toBeInTheDocument();
         expect(screen.getByText("Revise what you've already learned")).toBeInTheDocument();
 
-        // expect(await screen.getByText("Camel")).toBeInTheDocument();
-        // expect(await screen.findByText("Camel")).toBeInTheDocument();
-        // expect(await screen.findByRole('heading', { name: "Camel", level: 2 })).toBeInTheDocument();
+        expect(screen.getByRole("button", { name: /next/i })).toBeInTheDocument();
+        expect(screen.getByRole("button", { name: /previous/i })).toBeInTheDocument();
+
 
         // because there are two 'headings' for the animal card (one on the front, one on the back of the card)
         // we have to select them all using 'findAllByRole' 
@@ -70,6 +83,49 @@ describe('FlashCardsPage', () => {
         expect(headings.length).toBe(2);
     });
 
+    test('the page renders a new animal (updates the animal name) after pressing the next button', async () => {
+        renderWithProvider();
+        clickNext();
+        // animals[1] is set to zebra, so that is the response we should see on the screen 
+        expect((await screen.findAllByText("Zebra")).length).toBeGreaterThan(0);
+
+    });
+
+    test('clicking next button twice an advancing two animals', async () => {
+        renderWithProvider();
+        clickNext(); // animals[1] is zebra 
+        clickNext(); // animals[2] is elephant 
+        expect((await screen.findAllByText("Elephant")).length).toBeGreaterThan(0);
+
+    });
+
+    test('the page renders the last animal when we press previous from page load', async () => {
+        renderWithProvider();
+
+        clickPrevious();
+        // animals[9] is set to 'alpaca', so that is the response we should see on the screen 
+        expect((await screen.findAllByText("Alpaca")).length).toBeGreaterThan(0);
+
+    });
+
+    test('the page renders the the previous animal when we press next and then press previous', async () => {
+        renderWithProvider();
+        clickNext();
+        clickPrevious();
+        // animals[0] is 'camel'
+        expect((await screen.findAllByText("Camel")).length).toBeGreaterThan(0);
+
+    });
+
+    test('the page resets back to the first animal after pressing the restart button ', async () => {
+        renderWithProvider();
+        clickNext();
+        clickNext();
+        clickRestart()
+        // animals[0] is 'camel'
+        expect((await screen.findAllByText("Camel")).length).toBeGreaterThan(0);
+
+    });
 
 });
 

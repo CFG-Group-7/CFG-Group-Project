@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from '../../src/App.jsx';
+import { AnimalProvider } from '.././AnimalContext.jsx';
 
 test.skip('renders the welcome message', () => {
     render(<App />);
