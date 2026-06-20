@@ -1,11 +1,11 @@
 // use hook useState & useEffect; import React
 import /*React,*/ { useState, useEffect } from "react";
 // import question bank
-import qBank from './components/questionBank'
+import qBank from '../components/Quiz/questionBank'
 // import Questions logic
-import Questions from './components/Questions'
+import Questions from '../components/Quiz/Questions'
 //import Score logic
-import Score from './components/Score'
+import Score from '../components/Quiz/Score'
 
 
 const Quiz = () => {
@@ -31,16 +31,16 @@ const Quiz = () => {
     //select questionsInUse from question bank when quizStarted transitions from false to true
     useEffect(() => {
         if (quizStarted) {
-        //Fisher-Yates shuffle function to randomise the question bank
-        const shuffled = [...qBank].sort(() => 0.5 - Math.random());
+            //Fisher-Yates shuffle function to randomise the question bank
+            const shuffled = [...qBank].sort(() => 0.5 - Math.random());
 
-        //select first 5 questions from randomised list as the subset to display on this render
-        setQuestionsInUse(shuffled.slice(0,5));
+            //select first 5 questions from randomised list as the subset to display on this render
+            setQuestionsInUse(shuffled.slice(0, 5));
 
-        //reset
-        setCurrentQ(0);
-        setScore(0);
-        setSelectedAnswer(null)
+            //reset
+            setCurrentQ(0);
+            setScore(0);
+            setSelectedAnswer(null)
         }
     }, [quizStarted]);
 
@@ -62,7 +62,7 @@ const Quiz = () => {
         //calculate score once answer has been selected
         if (selectedAnswer === questionsInUse[currentQ].answer) {
             setScore(prevScore => prevScore + 1);
-           // correctChoice();
+            // correctChoice();
         }
         //reset selection
         setSelectedAnswer(null);
@@ -88,13 +88,13 @@ const Quiz = () => {
                             <h2>Begin Quiz</h2>
                             {/* When click button, change startQuiz to true */}
                             <button
-                            onClick={startQuiz}
+                                onClick={startQuiz}
                             >
-                            Go!
+                                Go!
                             </button>
                         </div>
                     </div>
-                // Else display questions up until the end of the questions
+                    // Else display questions up until the end of the questions
                 ) : currentQ < questionsInUse.length ? (
                     <Questions
                         questionsInUse={questionsInUse}
@@ -104,7 +104,7 @@ const Quiz = () => {
                         isLastQ={currentQ === questionsInUse.length - 1}
                     />
                 ) : (
-                //Else display ScoreCard
+                    //Else display ScoreCard
                     <Score
                         score={score}
                         setScore={setScore}
