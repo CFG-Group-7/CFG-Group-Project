@@ -1,11 +1,11 @@
 // use hook useState & useEffect; import React
-import React, { useState, useEffect } from "react";
+import /*React,*/ { useState, useEffect } from "react";
 // import question bank
-import qBank from '../components/Quiz/questionBank'
+import qBank from './components/questionBank'
 // import Questions logic
-import Questions from '../components/Quiz/Questions'
+import Questions from './components/Questions'
 //import Score logic
-import Score from '../components/Quiz/Score'
+import Score from './components/Score'
 
 
 const Quiz = () => {
@@ -22,19 +22,26 @@ const Quiz = () => {
     // 4. Keep track of selected answer
     const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-    // 5. Keep track of whether quiz has started
+    // 5. Keep track of last question
     const [quizStarted, setQuizStarted] = useState(false);
 
-    // 6. Keep track of last question
-    const [isLastq, setIsLastQ] = useState(false);
+    //6. See if is correct
+    const [isCorrect, setIsCorrect] = useState(false);
 
-    //select questionsInUse from question bank
+    //select questionsInUse from question bank when quizStarted transitions from false to true
     useEffect(() => {
+        if (quizStarted) {
         //Fisher-Yates shuffle function to randomise the question bank
         const shuffled = [...qBank].sort(() => 0.5 - Math.random());
 
         //select first 5 questions from randomised list as the subset to display on this render
         setQuestionsInUse(shuffled.slice(0,5));
+
+        //reset
+        setCurrentQ(0);
+        setScore(0);
+        setSelectedAnswer(null)
+        }
     }, [quizStarted]);
 
     // Save choice when they click an answer
@@ -43,12 +50,19 @@ const Quiz = () => {
         // score will be calculated when moving on to prevent duplicate calculations
     };
 
+    /* correct choice
+    const correctChoice = () {
+        setIsCorrect(true);
+    }
+        */
+
     //Handle moving on question and updating score
     const handleNextQuestion = () => {
 
-        //calculate score
+        //calculate score once answer has been selected
         if (selectedAnswer === questionsInUse[currentQ].answer) {
             setScore(prevScore => prevScore + 1);
+           // correctChoice();
         }
         //reset selection
         setSelectedAnswer(null);
@@ -96,9 +110,9 @@ const Quiz = () => {
                         setScore={setScore}
                         setCurrentQ={setCurrentQ}
                         setQuizStarted={setQuizStarted}
-                        setisLastQ={setIsLastQ}
+                        isLastQ={currentQ === questionsInUse.length - 1}
                     />
-                )};
+                )}
             </div>
         </div>
     );

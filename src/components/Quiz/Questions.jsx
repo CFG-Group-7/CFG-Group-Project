@@ -3,7 +3,7 @@
 //receives the question data as props and displays the question along with multiple-choice options.
 
 //import necessaries from React
-import React, { useState, useEffect } from 'react';
+import /*React,*/ { useState, useEffect } from 'react';
 
 const Questions = ({    questionsInUse,
                         handleNextQuestion,
@@ -21,8 +21,8 @@ const Questions = ({    questionsInUse,
 
     //set option click
     const handleOptionClick = (option) => {
-        setSelectedOption(option);
-        handleAnswerClick(option);
+            setSelectedOption(option);
+            handleAnswerClick(option);
     };
 
     return (
@@ -44,7 +44,7 @@ const Questions = ({    questionsInUse,
                                 style={{
                                     backgroundColor:
                                     selectedOption === option ? 
-                                    '#9BC53D' : 'white',
+                                    '#FEFAE0' : 'gray',
                                     border: '1px solid gray'
                                 }}
                             >{option}
@@ -60,12 +60,14 @@ const Questions = ({    questionsInUse,
                         <div>
                             { isLastQ ?(
                                 <button
-                                    onClick={handleNextQuestion}>
+                                    onClick={handleNextQuestion}
+                                    disabled={selectedOption === null}>
                                     Submit
                                 </button>
                             ) : (
                                 <button
-                                    onClick={handleNextQuestion}>
+                                    onClick={handleNextQuestion}
+                                    disabled={selectedOption === null}>
                                     Next Question
                                     </button>
                             )}
