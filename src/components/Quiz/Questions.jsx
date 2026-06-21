@@ -26,27 +26,24 @@ const Questions = ({    questionsInUse,
     };
 
     return (
-        <div>
-            <div>
+        <div className= "bg-pale-green text-fontColour p-8 rounded-lg flex flex-col text-center items-center justify-center">
+            <div className="bg-green text-fontColour p-8 rounded-lg flex flex-col text-center items-center justify-center">
                 <div>
                     {/* display question */}
-                    <h4>
+                    <h4 className="mb-6">
                         { questionsInUse[currentQ].question}
                     </h4>
                     {/* display answers */}
-                    <div>
+                    <div className="grid grid-cols-2 gap-4">
                         {questionsInUse[currentQ].options.map((option, index) => (
                             //highlight selected answer
                             <button
                                 key={index}
                                 className={ `${selectedOption === option ? 'active' : '' }`}
                                 onClick={() => handleOptionClick(option)}
-                                style={{
-                                    backgroundColor:
-                                    selectedOption === option ? 
-                                    '#FEFAE0' : 'gray',
-                                    border: '1px solid gray'
-                                }}
+                                className= {
+                                    `border rounded-lg p-3 ${selectedOption === option ? 'bg-yellow' : 'bg-pale-green'}`
+                                }
                             >{option}
                             </button>
                         ))}

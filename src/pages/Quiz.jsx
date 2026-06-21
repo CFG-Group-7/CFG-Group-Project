@@ -76,25 +76,29 @@ const Quiz = () => {
         setQuizStarted(true);
     }
 
-    return (
-        <div>
-            <h1>Quiz</h1>
-            <p>Can you answer 5 questions about zoo animals?</p>
-            <div>
+return (
+        <div className="min-h-screen bg-pale-green flex items-center justify-center">
+            <div className="bg-pale-green p-8 rounded-lg max-w-lg w-full text-center">
+                <h1 className="text-fontColour text-3xl font-bold mb-2">Quiz</h1>
+
+                <p className="text-fontColour mb-6">
+                    Can you answer 5 questions about zoo animals?
+                </p>
+
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
-                    <div>
-                        <div>
-                            <h2>Begin Quiz</h2>
-                            {/* When click button, change startQuiz to true */}
-                            <button
-                                onClick={startQuiz}
-                            >
-                                Go!
-                            </button>
-                        </div>
+                    <div className="space-y-4">
+                        <h2 className="text-fontColour text-xl font-semibold">
+                            Begin Quiz
+                        </h2>
+
+                        <button
+                            onClick={startQuiz}
+                            className="bg-dark-green text-white px-6 py-2 rounded"
+                        >
+                            Go!
+                        </button>
                     </div>
-                    // Else display questions up until the end of the questions
                 ) : currentQ < questionsInUse.length ? (
                     <Questions
                         questionsInUse={questionsInUse}
@@ -104,7 +108,6 @@ const Quiz = () => {
                         isLastQ={currentQ === questionsInUse.length - 1}
                     />
                 ) : (
-                    //Else display ScoreCard
                     <Score
                         score={score}
                         setScore={setScore}
@@ -116,6 +119,5 @@ const Quiz = () => {
             </div>
         </div>
     );
-};
-
+}
 export default Quiz;
