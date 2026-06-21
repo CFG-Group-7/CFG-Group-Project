@@ -39,7 +39,6 @@ const Questions = ({    questionsInUse,
                             //highlight selected answer
                             <button
                                 key={index}
-                                className={ `${selectedOption === option ? 'active' : '' }`}
                                 onClick={() => handleOptionClick(option)}
                                 className= {
                                     `border rounded-lg p-3 ${selectedOption === option ? 'bg-yellow' : 'bg-pale-green'}`
@@ -57,16 +56,18 @@ const Questions = ({    questionsInUse,
                         <div>
                             { isLastQ ?(
                                 <button
+                                    className="mt-4 px-4 py-2 bg-orange rounded-lg"
                                     onClick={handleNextQuestion}
                                     disabled={selectedOption === null}>
                                     Submit
                                 </button>
                             ) : (
                                 <button
+                                    className="mt-4 px-4 py-2 bg-yellow rounded-lg"
                                     onClick={handleNextQuestion}
                                     disabled={selectedOption === null}>
                                     Next Question
-                                    </button>
+                                </button>
                             )}
                         </div>
                     </div>

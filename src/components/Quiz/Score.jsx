@@ -24,6 +24,7 @@
                         <h4>Your score: {score}</h4>
                         {/* restart option */}
                         <button
+                            className="mt-4 px-4 py-2 bg-blue text-yellow rounded-lg"
                             onClick={handleRestart}
                         >
                         Restart Quiz
