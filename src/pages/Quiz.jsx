@@ -80,11 +80,12 @@ return (
         <div className="min-h-screen bg-pale-green flex items-center justify-center">
             <div className="bg-pale-green p-8 rounded-lg max-w-lg w-full text-center">
                 <h1 className="text-fontColour text-3xl font-bold mb-2">Quiz</h1>
-
-                <p className="text-fontColour mb-6">
-                    Can you answer 5 questions about zoo animals?
-                </p>
-
+                {currentQ < questionsInUse.length && (
+                    <p className="text-fontColour mb-6">
+                        Can you answer 5 questions about zoo animals?
+                    </p>
+                )}
+                        
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
                     <div className="space-y-4">
@@ -94,7 +95,7 @@ return (
 
                         <button
                             onClick={startQuiz}
-                            className="bg-dark-green text-white px-6 py-2 rounded"
+                            className="bg-dark-green text-white px-6 py-2 rounded hover:bg-orange"
                         >
                             Go!
                         </button>
