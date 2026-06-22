@@ -25,8 +25,9 @@ const Quiz = () => {
     // 5. Keep track of last question
     const [quizStarted, setQuizStarted] = useState(false);
 
-    //6. See if is correct
+    /*6. See if is correct
     const [isCorrect, setIsCorrect] = useState(false);
+    */
 
     //select questionsInUse from question bank when quizStarted transitions from false to true
     useEffect(() => {
@@ -88,7 +89,9 @@ return (
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
                     <div className="space-y-4">
-                        <h2 className="text-fontColour text-xl font-semibold">
+                        <h2 
+                            data-testid = 'beginQuiz'
+                            className="text-fontColour text-xl font-semibold">
                             Begin Quiz
                         </h2>
 
