@@ -71,7 +71,7 @@ export default function FlashCardsPage() {
             </div>
             <div className="flex items-center justify-center">
 
-                <button className="bg-dark-green hover:bg-green-700 my-10 text-white font-bold py-2 px-4 rounded-full" onClick={handleRestart}>RESTART</button>
+                <button className="bg-dark-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={handleRestart}>RESTART</button>
             </div>
         </div>
     );
