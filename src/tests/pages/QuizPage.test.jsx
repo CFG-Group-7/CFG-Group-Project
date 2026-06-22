@@ -5,7 +5,7 @@ import '@testing-library/jest-dom/vitest'
 import Quiz from '../../pages/Quiz';
 
 describe('Quiz', () => {
-    it('begins quiz on button click', () => {
+    it('renders correctly', () => {
         render(<Quiz />);
 
         const button = screen.getByRole('button', {name: /Go!/i });
