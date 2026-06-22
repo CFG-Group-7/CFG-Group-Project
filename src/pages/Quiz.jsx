@@ -78,7 +78,7 @@ return (
                 {!quizStarted ? (
                     <div className="space-y-4">
                          <p className="text-fontColour mb-6">
-                    Can you answer 5 questions about zoo animals?
+                        Can you answer 5 questions about zoo animals?
                         </p>
                         <h2 
                             data-testid = 'beginQuiz'

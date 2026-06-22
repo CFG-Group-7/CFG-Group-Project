@@ -8,7 +8,6 @@ describe('Quiz', () => {
     it('renders correctly', () => {
         render(<Quiz />);
 
-        const button = screen.getByRole('button', {name: /Go!/i });
         const beginQuiz = screen.getByTestId('beginQuiz')
 
         expect(beginQuiz.textContent).toEqual('Begin Quiz');
