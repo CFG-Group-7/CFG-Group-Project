@@ -25,9 +25,6 @@ const Quiz = () => {
     // 5. Keep track of last question
     const [quizStarted, setQuizStarted] = useState(false);
 
-    /*6. See if is correct
-    const [isCorrect, setIsCorrect] = useState(false);
-    */
 
     //select questionsInUse from question bank when quizStarted transitions from false to true
     useEffect(() => {
@@ -51,11 +48,6 @@ const Quiz = () => {
         // score will be calculated when moving on to prevent duplicate calculations
     };
 
-    /* correct choice
-    const correctChoice = () {
-        setIsCorrect(true);
-    }
-        */
 
     //Handle moving on question and updating score
     const handleNextQuestion = () => {
@@ -82,13 +74,12 @@ return (
             <div className="bg-pale-green p-8 rounded-lg max-w-lg w-full text-center">
                 <h1 className="text-fontColour text-3xl font-bold mb-2">Quiz</h1>
 
-                <p className="text-fontColour mb-6">
-                    Can you answer 5 questions about zoo animals?
-                </p>
-
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
                     <div className="space-y-4">
+                         <p className="text-fontColour mb-6">
+                    Can you answer 5 questions about zoo animals?
+                        </p>
                         <h2 
                             data-testid = 'beginQuiz'
                             className="text-fontColour text-xl font-semibold">
