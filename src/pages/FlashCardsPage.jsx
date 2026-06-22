@@ -55,23 +55,23 @@ export default function FlashCardsPage() {
     }
 
     return (
-        <div className="h-screen bg-pale-green">
+        <div className="min-h-screen bg-pale-green">
             <div className="flex flex-col items-center justify-center gap-y-3 pb-5">
-                <h1>Test your knowledge!</h1>
-                <p>
-                    Revise what you've already learned
+                <h1 className="text-3xl font-bold text-fontColour">Test your knowledge</h1>
+                <p className="font-bold text-fontColour">
+                    Revise what you've already learned!
                 </p>
             </div>
 
             <div className="flex items-center justify-center">
-                <button className="bg-blue-500 hover:bg-blue-700 mx-10 text-white font-bold py-2 px-4 rounded-full" onClick={handlePreviousCard}>Previous</button>
+                <button className="w-32 bg-blue-500 hover:bg-blue mx-10 text-white cursor-pointer font-bold py-2 px-4 rounded-full" onClick={handlePreviousCard}>Previous</button>
                 {animalData ? <FlashCard animal={animalData} /> : <div className="skeleton h-160 w-120"></div>}
 
-                <button className="bg-blue-500 hover:bg-blue-700 text-white mx-10 font-bold py-2 px-4 rounded-full" onClick={handleNextCard}>Next</button>
+                <button className="w-32 bg-blue-500 hover:bg-blue mx-10 cursor-pointer text-white font-bold py-2 px-4 rounded-full" onClick={handleNextCard}>Next</button>
             </div>
-            <div className="flex items-center justify-center" >
+            <div className="flex items-center justify-center">
 
-                <button className="bg-green-500 hover:bg-green-700 my-10 text-white font-bold py-2 px-4 rounded-full" onClick={handleRestart}>RESTART</button>
+                <button className="bg-dark-green hover:bg-green-700 my-10 text-white font-bold py-2 px-4 rounded-full" onClick={handleRestart}>RESTART</button>
             </div>
         </div>
     );
