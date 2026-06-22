@@ -6,6 +6,8 @@ import qBank from '../components/Quiz/questionBank'
 import Questions from '../components/Quiz/Questions'
 //import Score logic
 import Score from '../components/Quiz/Score'
+// import navbar
+import Navbar from '../components/Navbar'
 
 
 const Quiz = () => {
