@@ -40,7 +40,7 @@ const Questions = ({    questionsInUse,
                             <button
                                 key={index}
                                 onClick={() => handleOptionClick(option)}
-                                className= {
+                                className={
                                     `border rounded-lg p-3 ${selectedOption === option ? 'bg-yellow' : 'bg-pale-green'}`
                                 }
                             >{option}
@@ -54,7 +54,7 @@ const Questions = ({    questionsInUse,
                             <p>Question {currentQ + 1} of {questionsInUse.length}</p>
                         </div>
                         <div>
-                            { isLastQ ?(
+                            { isLastQ ? (
                                 <button
                                     className="mt-4 px-4 py-2 bg-orange rounded-lg"
                                     onClick={handleNextQuestion}
