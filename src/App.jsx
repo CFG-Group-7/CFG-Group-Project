@@ -17,7 +17,7 @@ function App() {
                 <div className="bg-[#E55934] rounded-xl text-center m-2 p-6">
                     <FeatureCard
                         title="Find an animal"
-                        description=" Search for your favourite zoo animal and learn all about it!"
+                        description="Search for your favourite zoo animal and learn all about it!"
                         pageLink="/search"
                     />
                 </div>
@@ -25,7 +25,7 @@ function App() {
                 <div className="bg-[#5BC0EB] rounded-xl text-center m-2 p-6">
                     <FeatureCard
                         title="Flash Cards"
-                        description=" Flip cards to learn fun facts about 15 different zoo animals!"
+                        description="Flip cards to learn fun facts about 15 different zoo animals!"
                         pageLink="/flash-cards-page"
                     />
                 </div>
@@ -33,7 +33,7 @@ function App() {
                 <div className="bg-[#9BC53D] rounded-xl text-center m-2 p-6">
                     <FeatureCard
                         title="Take a quiz"
-                        description=" How much do you know about zoo animals?"
+                        description="How much do you know about zoo animals?"
                         pageLink="/quiz"
                     />
                 </div>
@@ -41,7 +41,7 @@ function App() {
                 <div className="bg-[#FDE74C] rounded-xl text-center m-2 p-6">
                     <FeatureCard
                         title="More Fun"
-                        description=" Search for your favourite zoo animal and learn all about it!"
+                        description="Visit amazing websites to discover even more about animals!"
                         pageLink="/more-fun"
                     />
                 </div>
