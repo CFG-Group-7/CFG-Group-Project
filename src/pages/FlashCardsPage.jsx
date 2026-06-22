@@ -64,7 +64,7 @@ export default function FlashCardsPage() {
             </div>
 
             <div className="flex items-center justify-center">
-                <button className="w-32 bg-blue-500 hover:bg-blue mx-10 text-white cursor-pointer font-bold py-2 px-4 rounded-full" onClick={handlePreviousCard}>Previous</button>
+                <button className="w-32 bg-blue-500 hover:bg-blue mx-10 text-white cursor-pointer font-bold py-2 px-4 rounded-full" onClick={handlePreviousCard}>Back</button>
                 {animalData ? <FlashCard animal={animalData} /> : <div className="skeleton h-160 w-120"></div>}
 
                 <button className="w-32 bg-blue-500 hover:bg-blue mx-10 cursor-pointer text-white font-bold py-2 px-4 rounded-full" onClick={handleNextCard}>Next</button>

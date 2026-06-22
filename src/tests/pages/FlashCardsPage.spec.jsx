@@ -54,7 +54,7 @@ describe('FlashCardsPage', () => {
 
     })
     const clickNext = () => fireEvent.click(screen.getByRole("button", { name: /next/i }));
-    const clickPrevious = () => fireEvent.click(screen.getByRole("button", { name: /previous/i }));
+    const clickPrevious = () => fireEvent.click(screen.getByRole("button", { name: /back/i }));
     const clickRestart = () => fireEvent.click(screen.getByRole("button", { name: /restart/i }));
     const renderWithProvider = () => {
         return render(
@@ -67,11 +67,11 @@ describe('FlashCardsPage', () => {
     test('the page renders with default content', async () => {
         renderWithProvider();
 
-        expect(screen.getByText("Test your knowledge!")).toBeInTheDocument();
-        expect(screen.getByText("Revise what you've already learned")).toBeInTheDocument();
+        expect(screen.getByText("Test your knowledge")).toBeInTheDocument();
+        expect(screen.getByText("Revise what you've already learned!")).toBeInTheDocument();
 
         expect(screen.getByRole("button", { name: /next/i })).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: /previous/i })).toBeInTheDocument();
+        expect(screen.getByRole("button", { name: /back/i })).toBeInTheDocument();
 
 
         // because there are two 'headings' for the animal card (one on the front, one on the back of the card)
