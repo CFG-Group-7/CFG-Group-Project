@@ -2,15 +2,13 @@ import { afterEach, describe, expect, test } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../App.jsx';
-import { AnimalProvider } from '../AnimalContext.jsx';
+
 
 
 const renderWithProvider = () => {
     return render(
         <MemoryRouter> {/*memory router is needed because the app component has react links*/}
-            <AnimalProvider>
-                <App />
-            </AnimalProvider>
+            <App />
         </MemoryRouter>
     );
 };
