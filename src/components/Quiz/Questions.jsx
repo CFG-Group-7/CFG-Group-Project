@@ -63,7 +63,7 @@ const Questions = ({ questionsInUse,
                             </button>
                         ) : (
                             <button
-                                className="mt-4 px-4 py-2 bg-yellow rounded-lg"
+                                className="mt-4 px-4 py-2 bg-yellow hover:bg-orange rounded-lg"
                                 onClick={handleNextQuestion}
                                 disabled={selectedOption === null}>
                                 Next Question
