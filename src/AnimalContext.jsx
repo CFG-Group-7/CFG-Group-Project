@@ -54,6 +54,8 @@ const AnimalProvider = ({ children }) => {
 };
 
 const useAnimals = () => useContext(AnimalContext);
+
+
 const fetchAnimal = async (animalName) => {
     const res = await fetch(
         `/.netlify/functions/animals?name=${animalName}`

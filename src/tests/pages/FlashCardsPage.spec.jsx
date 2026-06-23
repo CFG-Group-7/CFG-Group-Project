@@ -4,11 +4,6 @@ import FlashCardsPage from '../../pages/FlashCardsPage';
 
 import { AnimalProvider } from '../../AnimalContext';
 
-// vi.mock('./api', () => ({
-//     fetchUsers: vi.fn().mockResolvedValue([]),
-//     createUser: vi.fn().mockResolvedValue({ id: 1 }),
-// }));
-
 vi.mock('../../AnimalContext', async (importOriginal) => {
     const actual = await importOriginal(); // sends the request to the module 
     return {
