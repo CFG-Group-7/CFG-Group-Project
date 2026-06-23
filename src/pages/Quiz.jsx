@@ -88,7 +88,7 @@ const Quiz = () => {
                 {!quizStarted ? (
                     <div className="space-y-4 bg-pale-green rounded-lg w-full max-w-md">
                         <p className="text-fontColour mb-6 mt-4">
-                            Can you anser 5 questions about zoo animals?
+                            Can you answer 5 questions about zoo animals?
                         </p>
                         <h2 className="text-fontColour text-xl font-semibold">
                             Begin Quiz
