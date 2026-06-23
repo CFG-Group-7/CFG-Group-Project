@@ -45,6 +45,7 @@ export default function Search() {
                     <p className="text-xl text-fontColour">
                         Type the name of any zoo animal to learn all about it!
                     </p>
+
                 </div>
 
                 {/* Search area */}

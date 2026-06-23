@@ -1,16 +1,55 @@
-# Zoopedia
-Zoopedia is an interactive web app designed for key stage 1 primary school children. It contains interactive flashcards and a quiz, and is designed to be educational in a fun way. The colours and layout have been designed with this in mind.
 
-## Which tech stack was used to create it?
-- React
-- Jest (for unit testing)
-- bootstrap or tailwind (for styling) 
+# :lion: Zoopedia :tiger:
 
-## How do you get a copy of it on your own device?
-<br />
-<br />
-<br />
+### :orangutan: Concept
+Zoopedia is an interactive web app designed for Key Stage 1 primary school children (age 4-7) to explore and learn about zoo animals.
 
-Beth: has recently learnt to crochet to try and reduce spending on gifts.
-Anna: is currently really into gardening and sewing and has very little free time not filled with hobbies....
-Rachel: has been influenced by knitting tiktok and is currently knitting a poncho.
+### :giraffe: Solution
+An app offering basic information about common zoo animals in a range of ways, along with a small interactive quiz, and links to further sources of information about zoo animals, and wider animal conservation.
+
+
+## :zebra: Features
+- Specific Animal Search
+- Animal Flash Cards
+- Quiz
+- Reference websites for further exploration
+
+
+## :flamingo: Authors
+This app has been designed by the following group of women:
+- [Iryna Herasymchuk](https://github.com/Keplin1)
+- [Anna Howson](https://github.com/annahowson)
+- [Rachel Wignall](https://github.com/RachellWignall)
+- [Kathryn Sims](https://github.com/sims-bit)
+- [Hannah Sharpe](https://github.com/hannahsh45)
+- [Beth Hobbs](https://github.com/bmh333)
+
+
+## :elephant: Installation
+Please note that Zoopedia is a React app run through Node.js. Please ensure that these are installed on your machine prior to running the app.
+
+In order to run Zoopedia, you will need to install the dependencies:
+`npm i`
+
+Then start the application using the following command: 
+`npm run dev`
+
+
+## :gorilla: Environment Variables
+To run this project, you will need to add the following environment variables to your `.env` file
+
+`API_KEY`
+
+In order to request an API key, you need to go to this website: https://api-ninjas.com/api/animals
+
+Press 'get free API key'.
+
+Once you get it, copy it into your `.env` file.
+
+Example: API_NINJAS_KEY=your_api_key_here
+
+
+## :leopard: Running tests
+Test will be run in `vitest`
+To run tests, use the following command: 
+`npm t`
