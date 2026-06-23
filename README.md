@@ -36,9 +36,17 @@ Then start the application using the following command:
 
 
 ## :gorilla: Environment Variables
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your `.env` file
 
 `API_KEY`
+
+In order to request an API key, you need to go to this website: https://api-ninjas.com/api/animals
+
+Press 'get free API key'.
+
+Once you get it, copy it into your `.env` file.
+
+Example: API_NINJAS_KEY=your_api_key_here
 
 
 ## :leopard: Running tests
