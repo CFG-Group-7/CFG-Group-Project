@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useAnimals } from "../AnimalContext";
 
 export default function Search() {
+    // these are context setters for flashcards 
+    const { cacheSearchData, updateDefaultAnimals } = useAnimals();
     // Stores the animal searched and updates the value when the user types
     const [animal, setAnimal] = useState("");
     // Stores the data from the API and saves it so it can be displayed
@@ -19,6 +22,10 @@ export default function Search() {
         const data = await res.json();
         console.log("API RESPONSE:", data);
         setResult(data);
+
+        // these are required for the flashcards to work - they set the context 
+        cacheSearchData(data);
+        updateDefaultAnimals(data);
     };
 
     // Array storing animals for the short cut search buttons
@@ -26,58 +33,6 @@ export default function Search() {
 
     // This displays an input box and a button to search
     return (
-<<<<<<< Updated upstream
-        <div>
-            <input
-                value={animal}
-                onChange={(e) => setAnimal(e.target.value)}
-                placeholder="Search animal..."
-            />
-            
-            <button onClick={() => search(animal)}>
-                Search
-            </button>
-
-            {/*Short cut search button*/}
-            <div>
-                {quickAnimals.map((animalName) => (
-                    <button 
-                        key={animalName}
-                        onClick={() => search(animalName.toLowerCase())}
-                    >
-                        {animalName}
-                    </button>
-                ))}
-            </div>
-
-            {result && (
-                <div>
-                    <h2>{result.animalName}</h2>
-                    {/*Displays an image of the searched animal */}
-                    {result.images?.fullImage && (
-                        <img
-                            src={result.images.fullImage}
-                            alt={result.animalName}
-                            style={{
-                                maxWidth: "400px",
-                                width: "100%"
-                            }}
-                            />
-                    )}
-                    <p>Locations: {result.locations?.join(", ")}</p>
-                    <p>Habitat: {result.characteristics?.habitat}</p>
-                    <p>Diet: {result.characteristics?.diet}</p>
-                    {/*If top speed isn't available, it'll instead display prey */}
-                    {!result.characteristics?.top_speed ? (
-                        result.characteristics?.prey && (
-                            <p>Prey: {result.characteristics.prey}</p>
-                        )
-                    ) : (
-                        <p>Top speed: {result.characteristics.top_speed}</p>
-                    )}
-                    <p>Lifespan: {result.characteristics?.lifespan}</p>
-                    <p>Weight: {result.characteristics?.weight}</p>
-=======
         <div className="min-h-screen bg-pale-green py-10 px-4">
             <div className="max-w-4xl mx-auto">
 
@@ -90,7 +45,6 @@ export default function Search() {
                     <p className="text-xl text-fontColour">
                         Type the name of any zoo animal to learn all about it!
                     </p>
->>>>>>> Stashed changes
                 </div>
 
                 {/* Search area */}
@@ -100,11 +54,11 @@ export default function Search() {
                             value={animal}
                             onChange={(e) => setAnimal(e.target.value)}
                             placeholder="Search an animal here..."
-                            className="flex-1 input input-bordered rounded-xl bg-white h-12 shadow-md"
+                            className="flex-1 input input-bordered rounded-xl bg-white h-12 shadow-md px-4"
                         />
 
                         <button 
-                            className="btn bg-dark-green text-white rounded-xl border-none h-12  hover:scale-105 transition shadow-md"
+                            className="btn bg-dark-green text-white rounded-xl border-none h-12  hover:scale-105 transition shadow-md px-3"
                             onClick={() => search(animal)}
                         >
                             Search
