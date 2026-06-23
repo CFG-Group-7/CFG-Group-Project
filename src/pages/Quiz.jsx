@@ -90,14 +90,14 @@ return (
                         
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
-                    <div className="space-y-4">
+                    <div className="space-y-6 bg-green">
                         <h2 className="text-fontColour text-xl font-semibold">
                             Begin Quiz
                         </h2>
 
                         <button
                             onClick={startQuiz}
-                            className="bg-dark-green text-white px-6 py-2 rounded hover:bg-orange"
+                            className="bg-dark-green text-white px-12 py-4 text-xl rounded hover:bg-orange"
                         >
                             Go!
                         </button>
