@@ -8,24 +8,46 @@ export default function Search() {
     const [animal, setAnimal] = useState("");
     // Stores the data from the API and saves it so it can be displayed
     const [result, setResult] = useState(null);
+    // Creates error state
+    const [error, setError] = useState(false);
 
     // This sends a request for the animal the user searches
     const search = async (name) => {
         if (!name) return;
 
-        console.log("Searching for:", name);
+        // Resets error before every search
+        setError(false);
 
-        const res = await fetch(
-            `/.netlify/functions/animals?name=${name}`
-        );
-        // API returns the data
-        const data = await res.json();
-        console.log("API RESPONSE:", data);
-        setResult(data);
+        try {
+            const res = await fetch(
+                `/.netlify/functions/animals?name=${name}`   
+            );
 
-        // these are required for the flashcards to work - they set the context 
-        cacheSearchData(data);
-        updateDefaultAnimals(data);
+            // API returns data
+            const data = await res.json();
+            console.log("API REPSONSE:", data);
+            
+            // Checks if the API returns an animal
+            if (!data || !data.animalName) {
+                setResult(null);
+                setError(true);
+                return;
+            }
+        
+            // Stores the data to display it
+            setResult(data);
+            
+            // these are required for the flashcards to work - they set the context 
+            cacheSearchData(data);
+            updateDefaultAnimals(data);
+
+        } catch (err) {
+            console.error("Search failed:", err);
+
+            // Clears previous result and displays the error message
+            setResult(null);
+            setError(true);
+        }
     };
 
     // Array storing animals for the short cut search buttons
@@ -84,7 +106,14 @@ export default function Search() {
                         </button>
                     ))}
                 </div>
-                
+
+                {/*Error message*/}
+                {error && (
+                    <p className="text-center text-red-600 font-bold mb-4">
+                        No animal found. Please check the spelling and try again.
+                    </p>
+                )}
+
                 {/*Search result*/}
                 {result && (
                     <div className="shadow-xl rounded-2xl p-6 bg-[#E55934]">
