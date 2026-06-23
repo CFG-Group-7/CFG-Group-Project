@@ -27,7 +27,7 @@ const Questions = ({    questionsInUse,
 
     return (
         <div className= "bg-pale-green text-fontColour p-8 rounded-lg flex flex-col text-center items-center justify-center">
-            <div className="bg-green text-fontColour p-8 rounded-lg flex flex-col text-center items-center justify-center">
+            <div className="bg-green w-84 h-84 text-fontColour p-8 rounded-lg flex flex-col text-center items-center justify-center">
                 <div>
                     {/* display question */}
                     <h4 className="mb-6">
