@@ -56,14 +56,14 @@ const Questions = ({ questionsInUse,
                     <div>
                         {isLastQ ? (
                             <button
-                                className="mt-4 px-4 py-2 bg-orange rounded-lg"
+                                className="mt-4 px-4 py-2 bg-orange rounded-lg hover:bg-blue"
                                 onClick={handleNextQuestion}
                                 disabled={selectedOption === null}>
                                 Submit
                             </button>
                         ) : (
                             <button
-                                className="mt-4 px-4 py-2 bg-yellow hover:bg-orange rounded-lg"
+                                className="mt-4 px-4 py-2 bg-orange hover:bg-yellow rounded-lg"
                                 onClick={handleNextQuestion}
                                 disabled={selectedOption === null}>
                                 Next Question
