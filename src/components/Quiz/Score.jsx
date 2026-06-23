@@ -21,8 +21,8 @@
                     {/* display quiz result */}
                     <div>
                         <h2>Quiz Completed, well done, you are a zoo animal expert!</h2>
-                        <h1 className="text-3xl">🥳 🐘 😎 🦉 🎉</h1>
-                        <h4>Your score: {score}</h4>
+                        <h1 className="text-4xl py-6">🥳 🐘 😎 🦉 🎉</h1>
+                        <h4>Your score: {score} 🙂</h4>
                         {/* restart option */}
                         <button
                             className="mt-4 px-4 py-2 bg-blue text-yellow rounded-lg hover:bg-orange"
@@ -36,3 +36,4 @@
         };
 
 export default Score;
+

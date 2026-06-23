@@ -80,17 +80,15 @@ const Quiz = () => {
 
 return (
         <div className="min-h-screen bg-pale-green flex items-center justify-center">
-            <div className="bg-pale-green p-8 rounded-lg max-w-lg w-full text-center">
-                <h1 className="text-fontColour text-3xl font-bold mb-2">Quiz</h1>
-                {currentQ < questionsInUse.length && (
-                    <p className="text-fontColour mb-6">
-                        Can you answer 5 questions about zoo animals?
-                    </p>
-                )}
+            <div className="bg-green p-8 rounded-lg max-w-lg w-full text-center">
+                <h1 className="text-fontColour text-6xl py-6 font-bold mb-2">Quiz 🐼</h1>
                         
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
-                    <div className="space-y-4">
+                    <div className="space-y-4 bg-pale-green">
+                        <p className="text-fontColour mb-6">
+                            Can you anser 5 questions about zoo animals?
+                        </p>
                         <h2 className="text-fontColour text-xl font-semibold">
                             Begin Quiz
                         </h2>
@@ -124,3 +122,4 @@ return (
     );
 }
 export default Quiz;
+
