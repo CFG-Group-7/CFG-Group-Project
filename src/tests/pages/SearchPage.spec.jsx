@@ -88,6 +88,31 @@ describe('search', () => {
         ).toBeInTheDocument();
     });
 
+    test('shows an error message when the API request fails', async () => {
+        const user = userEvent.setup();
+
+        global.fetch.mockRejectedValueOnce(
+            new Error('Network error')
+        );
+
+
+        render(<Search />);
+
+        await user.type(
+            screen.getByPlaceholderText(/search an animal/i),
+            'bob'
+        );
+
+        await user.click(
+            screen.getByRole('button', { name: /search/i })
+        );
+
+        expect(
+            await screen.findByText(
+                /No animal found. Please check the spelling and try again./i
+            )
+        ).toBeInTheDocument();
+    });
 
 
     test('quick search button fetches an animal', async () => {
@@ -115,6 +140,9 @@ describe('search', () => {
         expect(
             await screen.findByRole('heading', { name: 'Lion' })).toBeInTheDocument();
     });
+
+
+
 });
 
 
