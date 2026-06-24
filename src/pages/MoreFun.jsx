@@ -1,6 +1,5 @@
 import React from "react";
 
-{/* Array of resources with links and descriptions */}
 const resources = [
   {
     title: "BBC Wildlife",
@@ -26,57 +25,31 @@ const resources = [
 
 const MoreFun = () => {
   return (
-    <main className="page-shell"> {/* Page colour and padding */}
-      <section className="page-container text-center">
-        <div className="mb-8">
-          <h1 className="page-title mb-4">
-            Learn more
-          </h1>
+    <div>
+        <h1>Learn more</h1>
 
-          <p className="mx-auto max-w-3xl text-xl">
-            Click the links below to visit amazing websites about animals and nature!
-          </p>
+      <p>Click the links below to visit amazing websites about animals and nature!</p>
 
-    {/* Safety warning for children visiting new websites with styling */}
-          <p className="mx-auto mt-5 inline-block rounded-lg bg-orange px-6 py-3 text-lg">
-            Ask a grown-up before visiting a new website.
-          </p>
-        </div>
+      <p>Ask a grown-up before visiting a new website.</p>
 
-        {/* Responsive layout with styling */}
-        <ul className="grid list-none gap-6 p-0 md:grid-cols-2">
-          {resources.map((item, index) => (
-            <li
-              key={index}
-              className="flex min-h-56 flex-col items-center justify-between rounded-[2rem] bg-yellow p-7 text-center shadow-sm"
-            >
-             { /* Text within each card with styling */ }
-              <div>
-                <h2 className="mb-3 text-3xl font-medium text-fontColour">
-                  {item.title}
-                </h2>
+ <ul>
+ {resources.map((item, index) => (
+    <li key={index}>
+        <h2>{item.title}</h2>
 
-                <p className="text-lg leading-snug text-fontColour">
-                  {item.description}
-                </p>
-              </div>
+        <p>{item.description}</p>
 
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 w-full rounded-xl bg-dark-green px-8 py-3 text-lg font-bold text-white shadow-md hover:scale-105 hover:brightness-110 sm:max-w-md"
-              >
-                Visit Website
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+        <a href={item.url} target="_blank" rel="noopener noreferrer" >
+            <button>
+            Visit Website
+            </button>
+        </a>
+
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
 export default MoreFun;
-
-
