@@ -54,7 +54,7 @@ export default function FlashCard({ animal }) {
                         alt={animal.animalName}
                         className="h-60 w-60 rounded-lg object-cover"
                     />
-                    <div class="grid grid-cols-2 gap-4 mt-6 md:gap-6 ">
+                    <div className="grid grid-cols-2 gap-4 mt-6 md:gap-6 ">
                         {facts.map((fact) => (
                             <div
                                 key={fact.label}

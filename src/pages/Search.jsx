@@ -8,24 +8,46 @@ export default function Search() {
     const [animal, setAnimal] = useState("");
     // Stores the data from the API and saves it so it can be displayed
     const [result, setResult] = useState(null);
+    // Creates error state
+    const [error, setError] = useState(false);
 
     // This sends a request for the animal the user searches
     const search = async (name) => {
         if (!name) return;
 
-        console.log("Searching for:", name);
+        // Resets error before every search
+        setError(false);
 
-        const res = await fetch(
-            `/.netlify/functions/animals?name=${name}`
-        );
-        // API returns the data
-        const data = await res.json();
-        console.log("API RESPONSE:", data);
-        setResult(data);
+        try {
+            const res = await fetch(
+                `/.netlify/functions/animals?name=${name}`
+            );
 
-        // these are required for the flashcards to work - they set the context 
-        cacheSearchData(data);
-        updateDefaultAnimals(data);
+            // API returns data
+            const data = await res.json();
+
+
+            // Checks if the API returns an animal
+            if (!data || !data.animalName) {
+                setResult(null);
+                setError(true);
+                return;
+            }
+
+            // Stores the data to display it
+            setResult(data);
+
+            // these are required for the flashcards to work - they set the context 
+            cacheSearchData(data);
+            updateDefaultAnimals(data);
+
+        } catch (err) {
+            console.error("Search failed:", err);
+
+            // Clears previous result and displays the error message
+            setResult(null);
+            setError(true);
+        }
     };
 
     // Array storing animals for the short cut search buttons
@@ -58,22 +80,22 @@ export default function Search() {
                             className="flex-1 input input-bordered rounded-xl bg-white h-12 shadow-md px-4"
                         />
 
-                        <button 
+                        <button
                             className="btn bg-dark-green text-white rounded-xl border-none h-12  hover:scale-105 transition shadow-md px-3"
                             onClick={() => search(animal)}
                         >
                             Search
-                       </button>
+                        </button>
                     </div>
                 </div>
 
-                {/*Quick search button*/} 
+                {/*Quick search button*/}
                 <p className="text-center font-bold text-fontColour mb-3">
-                        Or click one here!
+                    Or click one here!
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-4 mb-10">
-                   
+
                     {quickAnimals.map((animalName) => (
                         <button
                             key={animalName}
@@ -84,7 +106,14 @@ export default function Search() {
                         </button>
                     ))}
                 </div>
-                
+
+                {/*Error message*/}
+                {error && (
+                    <p className="text-center text-red-600 font-bold mb-4">
+                        No animal found. Please check the spelling and try again.
+                    </p>
+                )}
+
                 {/*Search result*/}
                 {result && (
                     <div className="shadow-xl rounded-2xl p-6 bg-[#E55934]">
@@ -123,12 +152,12 @@ export default function Search() {
                                     {result.characteristics?.top_speed ? "Top Speed" : "Prey"}
                                 </p>
 
-                            <p>
-                                {result.characteristics?.top_speed
-                                    ? result.characteristics.top_speed
-                                    : result.characteristics?.prey}
-                            </p>
-                        </div>
+                                <p>
+                                    {result.characteristics?.top_speed
+                                        ? result.characteristics.top_speed
+                                        : result.characteristics?.prey}
+                                </p>
+                            </div>
 
                             <div className="bg-white rounded-xl shadow p-4">
                                 <p className="font-bold">Lifespan</p>
