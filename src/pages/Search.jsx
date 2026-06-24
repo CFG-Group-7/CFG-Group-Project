@@ -20,23 +20,23 @@ export default function Search() {
 
         try {
             const res = await fetch(
-                `/.netlify/functions/animals?name=${name}`   
+                `/.netlify/functions/animals?name=${name}`
             );
 
             // API returns data
             const data = await res.json();
-            console.log("API REPSONSE:", data);
-            
+
+
             // Checks if the API returns an animal
             if (!data || !data.animalName) {
                 setResult(null);
                 setError(true);
                 return;
             }
-        
+
             // Stores the data to display it
             setResult(data);
-            
+
             // these are required for the flashcards to work - they set the context 
             cacheSearchData(data);
             updateDefaultAnimals(data);
@@ -80,22 +80,22 @@ export default function Search() {
                             className="flex-1 input input-bordered rounded-xl bg-white h-12 shadow-md px-4"
                         />
 
-                        <button 
+                        <button
                             className="btn bg-dark-green text-white rounded-xl border-none h-12  hover:scale-105 transition shadow-md px-3"
                             onClick={() => search(animal)}
                         >
                             Search
-                       </button>
+                        </button>
                     </div>
                 </div>
 
-                {/*Quick search button*/} 
+                {/*Quick search button*/}
                 <p className="text-center font-bold text-fontColour mb-3">
-                        Or click one here!
+                    Or click one here!
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-4 mb-10">
-                   
+
                     {quickAnimals.map((animalName) => (
                         <button
                             key={animalName}
@@ -152,12 +152,12 @@ export default function Search() {
                                     {result.characteristics?.top_speed ? "Top Speed" : "Prey"}
                                 </p>
 
-                            <p>
-                                {result.characteristics?.top_speed
-                                    ? result.characteristics.top_speed
-                                    : result.characteristics?.prey}
-                            </p>
-                        </div>
+                                <p>
+                                    {result.characteristics?.top_speed
+                                        ? result.characteristics.top_speed
+                                        : result.characteristics?.prey}
+                                </p>
+                            </div>
 
                             <div className="bg-white rounded-xl shadow p-4">
                                 <p className="font-bold">Lifespan</p>
