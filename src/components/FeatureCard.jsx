@@ -4,12 +4,27 @@
 import { Link } from "react-router-dom";
 
 
+
 export default function FeatureCard(props) {
     return (
-        <div>
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
-            <Link to={props.pageLink}>Lets go</Link>
+        /* Styling for the card, including background color, padding, text alignment, and shadow effects. */
+        <div className="flex min-h-64 flex-col items-center justify-between rounded-[2rem] bg-yellow p-6 text-center shadow-sm">
+            <div>
+                <h2 className="mb-4 text-3xl font-medium text-fontColour">
+                    {props.title}
+                </h2>
+
+                <p className="text-lg leading-snug text-fontColour">
+                    {props.description}
+                </p>
+            </div>
+
+            <Link
+                to={props.pageLink}
+                className="mt-6 rounded-xl bg-dark-green px-8 py-3 text-lg font-bold text-white shadow-md hover:scale-105 hover:brightness-110"
+            >
+                Let&apos;s go &gt;
+            </Link>
         </div>
     );
 }
