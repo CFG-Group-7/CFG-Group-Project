@@ -79,7 +79,6 @@ describe('AnimalContext', () => {
 
                 result.current.updateDefaultAnimals({ animalName: `Animal${i}` })
             }
-
         })
         expect(result.current.animals.length).toBe(10);
         expect(result.current.animals[0]).toBe('animal11')
