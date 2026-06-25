@@ -12,7 +12,7 @@ export default function App() {
             <div className="text-center">
                 <h1>Welcome to Zoopedia</h1>
             </div>
-            <FunFact ></FunFact>
+            <FunFact />
             <div className="flex ml-6 mr-6">
                 <div className="bg-red rounded-xl text-center m-2 p-6">
                     <FeatureCard
