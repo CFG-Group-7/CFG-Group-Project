@@ -30,7 +30,7 @@ export default function FlashCard({ animal }) {
                 }
             >
                 {/* FRONT — name + image */}
-                <div className="flex inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl bg-blue p-6 shadow-xl [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
+                <div className="flex inset-0 flex-col items-center justify-center rounded-2xl bg-blue p-6 shadow-xl [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
                     <h2 className="text-2xl font-bold text-fontColour">
                         {animal.animalName}
                     </h2>
@@ -41,7 +41,7 @@ export default function FlashCard({ animal }) {
                         className="h-129 w-100 object-contain" // object-contain is the only option that works best with our images which have different sizing
                     />
 
-                    <p className="text-sm text-fontColour">Tap to flip</p>
+                    <p className="text-sm text-fontColour">Click to flip!</p>
                 </div>
 
                 {/* BACK — pre-rotated 180° so it faces away until flipped */}
@@ -54,17 +54,18 @@ export default function FlashCard({ animal }) {
                         alt={animal.animalName}
                         className="h-60 w-60 rounded-lg object-cover"
                     />
-                    <ul className="w-full space-y-1 text-sm text-gray-700">
+                    <div className="grid grid-cols-2 gap-4 mt-6 md:gap-6 ">
                         {facts.map((fact) => (
-                            <li
+                            <div
                                 key={fact.label}
-                                className="flex justify-between border-b border-blue py-1" // the border colour might need to change if the background colour changes 
+                                className="bg-blue-400 text-white rounded-xl p-4 text-center min-h-26 flex flex-col justify-center"
                             >
-                                <span className="font-semibold">{fact.label}</span>
-                                <span className="text-right opacity-80">{fact.value}</span>
-                            </li>
+                                <h1 className="font-bold">{fact.label}</h1>
+                                <p className="text-sm">{fact.value}</p>
+                            </div>
                         ))}
-                    </ul>
+                        {/* </ul> */}
+                    </div>
                 </div>
             </div>
         </div>

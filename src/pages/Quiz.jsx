@@ -6,6 +6,8 @@ import qBank from '../components/Quiz/questionBank'
 import Questions from '../components/Quiz/Questions'
 //import Score logic
 import Score from '../components/Quiz/Score'
+// import navbar
+import Navbar from '../components/Navbar'
 
 
 const Quiz = () => {
@@ -69,16 +71,17 @@ const Quiz = () => {
         setQuizStarted(true);
     }
 
-return (
+    return (
         <div className="min-h-screen bg-pale-green flex items-center justify-center">
-            <div className="bg-pale-green p-8 rounded-lg max-w-lg w-full text-center">
-                <h1 className="text-fontColour text-3xl font-bold mb-2">Quiz</h1>
+            <div className="bg-green p-8 flex flex-col items-center rounded-xl  max-w-2xl w-full text-center">
+                <h1 className="text-5xl">🐼</h1>
+                <h1 className="text-fontColour text-6xl pb-6 font-bold">Quiz</h1>
 
                 {/* If quiz not started, display initial page */}
                 {!quizStarted ? (
-                    <div className="space-y-4">
-                         <p className="text-fontColour mb-6">
-                        Can you answer 5 questions about zoo animals?
+                    <div className="space-y-4 bg-pale-green rounded-lg w-full max-w-md">
+                        <p className="text-fontColour mb-6 mt-4">
+                            Can you answer 5 questions about zoo animals?
                         </p>
                         <h2 
                             data-testid = 'beginQuiz'
@@ -88,7 +91,7 @@ return (
 
                         <button
                             onClick={startQuiz}
-                            className="bg-dark-green text-white px-6 py-2 rounded"
+                            className="bg-dark-green mb-8 text-white px-6 py-2 rounded hover:bg-orange"
                         >
                             Go!
                         </button>
@@ -115,3 +118,4 @@ return (
     );
 }
 export default Quiz;
+
