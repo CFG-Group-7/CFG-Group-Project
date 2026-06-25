@@ -142,6 +142,52 @@ describe('search', () => {
     });
 
 
+    test('does not call fetch when the search input is empty', async () => {
+        const user = userEvent.setup();
+
+        // renders search component for the test
+        render(<Search />);
+
+        // user clicks search without typing into input
+        await user.click(
+            screen.getByRole('button', { name: /search/i })
+        );
+
+        // checks the API request wasn't triggered because the input is empty
+        expect(global.fetch).not.toHaveBeenCalled();
+    });
+
+
+    test('the API gets called with the searched animal name', async () => {
+        const user = userEvent.setup();
+
+        // mock API response
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                animalName: 'Camel',
+                locations: [],
+                characteristics: {}
+            })
+        });
+
+        render(<Search />);
+
+        // user types into the input
+        const input = screen.getByPlaceholderText(/search an animal here/i);
+
+        await user.type(input, 'camel');
+
+        // user clicks search
+        await user.click(
+            screen.getByRole('button', { name: /search/i })
+        );
+
+        // checks fetch was called correctly
+        expect(global.fetch).toHaveBeenCalledWith(
+            '/.netlify/functions/animals?name=camel'
+        );
+    });
 
 });
 
