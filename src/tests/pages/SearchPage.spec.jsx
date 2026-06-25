@@ -37,7 +37,15 @@ describe('search', () => {
         ).toBeInTheDocument();
         expect(screen.getByRole("button", { name: /search/i })).toBeInTheDocument();
 
-    })
+        // quick search buttons render
+        const quickAnimals = ['Lion', 'Elephant', 'Penguin', 'Giraffe', 'Tortoise', 'Zebra', 'Bear'];
+
+        quickAnimals.forEach((animal) => {
+            expect(
+                screen.getByRole('button', { name: animal })
+            ).toBeInTheDocument();
+        });
+    });
 
     test('fetches and displays the searched animal', async () => {
         const user = userEvent.setup();
