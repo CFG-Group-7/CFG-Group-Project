@@ -1,6 +1,6 @@
 export default function FunFact() {
-    
-    
+
+
     const factList = [
         "A giraffe has seven bones in its neck, which is the same as a human has, but they are much larger.",
         "A jaguar can see in the dark six times better than a human.",
@@ -21,12 +21,12 @@ export default function FunFact() {
 
     ];
 
-        
-    let index = Math.floor(Math.random() * factList.length);
-    console.log(factList[index])
+
+    const index = Math.floor(Math.random() * factList.length);
+
 
     return (
-        <div>
+        <div className="text-center">
             <p>{factList[index]}</p>
         </div>
     )
