@@ -27,6 +27,7 @@ export default function FunFact() {
 
     return (
         <div className="text-center">
+            <h2>Fun Fact!</h2>
             <p>{factList[index]}</p>
         </div>
     )
