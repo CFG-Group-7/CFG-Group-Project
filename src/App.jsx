@@ -23,7 +23,7 @@ export default function App() {
                 <div className="bg-blue rounded-xl text-center m-2 p-6">
                     <FeatureCard
                         title="Flash Cards"
-                        description="Flip cards to learn fun facts about 15 different zoo animals!"
+                        description="Flip cards to learn fun facts about 10 different zoo animals!"
                         pageLink="/flash-cards"
                     />
                 </div>
