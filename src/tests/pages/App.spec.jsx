@@ -18,7 +18,7 @@ describe('App.jsx tests', () => {
     afterEach(() => {
         cleanup(); // cleaning the dom between tests 
 
-    })
+    });
 
     test('renders the welcome message', () => {
         renderWithProvider();
@@ -26,7 +26,7 @@ describe('App.jsx tests', () => {
         expect(screen.getByText("Welcome to Zoopedia")).toBeInTheDocument();
         expect(screen.getByText("Welcome to Zoopedia")).toBeVisible();
 
-    })
+    });
 
     test('renders the feature cards', () => {
         renderWithProvider();
@@ -36,5 +36,5 @@ describe('App.jsx tests', () => {
         expect(screen.getByText("Take a quiz")).toBeInTheDocument();
         expect(screen.getByText("More Fun")).toBeInTheDocument();
 
-    })
+    });
 });

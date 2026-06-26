@@ -1,5 +1,3 @@
-import React from "react";
-
 const resources = [
   {
     title: "BBC Wildlife",
@@ -26,24 +24,24 @@ const resources = [
 const MoreFun = () => {
   return (
     <div>
-        <h1>Learn more</h1>
+      <h1>Learn more</h1>
 
       <p>Click the links below to visit amazing websites about animals and nature!</p>
 
       <p>Ask a grown-up before visiting a new website.</p>
 
- <ul>
- {resources.map((item, index) => (
-    <li key={index}>
-        <h2>{item.title}</h2>
+      <ul>
+        {resources.map((item, index) => (
+          <li key={index}>
+            <h2>{item.title}</h2>
 
-        <p>{item.description}</p>
+            <p>{item.description}</p>
 
-        <a href={item.url} target="_blank" rel="noopener noreferrer" >
-            <button>
-            Visit Website
-            </button>
-        </a>
+            <a href={item.url} target="_blank" rel="noopener noreferrer" >
+              <button>
+                Visit Website
+              </button>
+            </a>
 
           </li>
         ))}
