@@ -29,6 +29,6 @@ export default function FunFact() {
         <div className="text-center">
             <p>{factList[index]}</p>
         </div>
-    )
+    );
 
 }

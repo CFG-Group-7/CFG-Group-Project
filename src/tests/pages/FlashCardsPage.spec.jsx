@@ -35,7 +35,7 @@ vi.mock('../../AnimalContext', async (importOriginal) => {
             }
         })
         )
-    }
+    };
 
 });
 
@@ -47,7 +47,7 @@ describe('FlashCardsPage', () => {
     afterEach(() => {
         cleanup();
 
-    })
+    });
     const clickNext = () => fireEvent.click(screen.getByRole("button", { name: /next/i }));
     const clickPrevious = () => fireEvent.click(screen.getByRole("button", { name: /back/i }));
     const clickRestart = () => fireEvent.click(screen.getByRole("button", { name: /restart/i }));
@@ -116,7 +116,7 @@ describe('FlashCardsPage', () => {
         renderWithProvider();
         clickNext();
         clickNext();
-        clickRestart()
+        clickRestart();
         // animals[0] is 'camel'
         expect((await screen.findAllByText("Camel")).length).toBeGreaterThan(0);
 

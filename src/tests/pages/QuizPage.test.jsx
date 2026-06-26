@@ -1,10 +1,10 @@
-import { afterEach, beforeEach, describe, it, expect, test, vi } from 'vitest';
+import { afterEach, describe, it, expect } from 'vitest';
 import userEvent from "@testing-library/user-event";
-import '@testing-library/jest-dom/vitest'
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+import { cleanup, render, screen } from '@testing-library/react';
 
 afterEach(() => {
-  cleanup();
+    cleanup();
 });
 
 import Quiz from '../../pages/Quiz';
@@ -14,7 +14,7 @@ describe('Quiz', () => {
     it('renders correctly', () => {
         render(<Quiz />);
 
-        const beginQuiz = screen.getByTestId('beginQuiz')
+        const beginQuiz = screen.getByTestId('beginQuiz');
 
         expect(beginQuiz.textContent).toEqual('Begin Quiz');
 
@@ -23,8 +23,8 @@ describe('Quiz', () => {
 
 describe('score presented', () => {
     it('renders the score after the quiz is completed', () => {
-        render(<Score score={3} />)
-        expect(screen.getByText('Your score: 3 / 5 🙂')).toBeInTheDocument();
+        render(<Score score={3} />);
+        expect(screen.getByText('Your score: 3 / 5 🙂')).toBeInTheDocument();
     });
 
 });

@@ -1,13 +1,12 @@
 // use hook useState & useEffect; import React
 import /*React,*/ { useState, useEffect } from "react";
 // import question bank
-import qBank from '../components/Quiz/questionBank'
+import qBank from '../components/Quiz/questionBank';
 // import Questions logic
-import Questions from '../components/Quiz/Questions'
+import Questions from '../components/Quiz/Questions';
 //import Score logic
-import Score from '../components/Quiz/Score'
-// import navbar
-import Navbar from '../components/Navbar'
+import Score from '../components/Quiz/Score';
+
 
 
 const Quiz = () => {
@@ -40,7 +39,7 @@ const Quiz = () => {
             //reset
             setCurrentQ(0);
             setScore(0);
-            setSelectedAnswer(null)
+            setSelectedAnswer(null);
         }
     }, [quizStarted]);
 
@@ -69,7 +68,7 @@ const Quiz = () => {
     //set start quiz function
     const startQuiz = () => {
         setQuizStarted(true);
-    }
+    };
 
     return (
         <div className="min-h-screen bg-pale-green flex items-center justify-center">
@@ -83,8 +82,8 @@ const Quiz = () => {
                         <p className="text-fontColour mb-6 mt-4">
                             Can you answer 5 questions about zoo animals?
                         </p>
-                        <h2 
-                            data-testid = 'beginQuiz'
+                        <h2
+                            data-testid='beginQuiz'
                             className="text-fontColour text-xl font-semibold">
                             Begin Quiz
                         </h2>
@@ -116,6 +115,6 @@ const Quiz = () => {
             </div>
         </div>
     );
-}
+};
 export default Quiz;
 

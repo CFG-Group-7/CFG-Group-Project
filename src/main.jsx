@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import { AnimalProvider } from './AnimalContext.jsx';
 import NavBar from "./components/Navbar";
 import MoreFun from './pages/MoreFun.jsx';
-import Quiz from './pages/Quiz.jsx'
+import Quiz from './pages/Quiz.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>

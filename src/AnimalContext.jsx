@@ -6,9 +6,7 @@ const AnimalProvider = ({ children }) => {
     const [animals, setAnimals] = useState(["camel", "zebra", "elephant", "owl", "kangaroo", "lion", "donkey", "alpaca"]);
 
     const [searchData, setSearchData] = useState([]); // to keep track of the search result
-    // const setAnimalData = (index, data) => {
-    //     setAnimals((previous) => previous.map((animal, i) => (i === index ? data : animal)))
-    // }
+
     const cacheSearchData = (data) => {
         setSearchData((prev) => {
             const existingIndex = prev.findIndex((animal) => animal.animalName.toLowerCase() === data.animalName.toLowerCase());
@@ -47,7 +45,6 @@ const AnimalProvider = ({ children }) => {
         });
 
     };
-
 
     return <AnimalContext.Provider value={{ animals, setAnimals, searchData, setSearchData, cacheSearchData, updateDefaultAnimals }}>{children}</AnimalContext.Provider>;
 
