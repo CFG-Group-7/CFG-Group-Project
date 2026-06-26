@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
     return (
         <>
-        <nav className="flex justify-end p-2 space-x-2">
-            <h1 className="font-[irish-grover] basis-300">Zoopedia</h1> {/*basis not permenant*/}
+        <nav className="flex justify-end p-2 space-x-2 bg-pale-green text-fontColour rounded-xl shadow-md">
+            <h1 className="font-logo text-3xl text-dark-green basis-300 md:text-4xl">Zoopedia</h1> {/*basis not permenant*/}
             <Link className="bg-orange rounded-xl p-2 w-32 text-center " to="/">Home</Link>
             <Link className="bg-red rounded-xl p-2 w-32 text-center ml-4" to="/search">Search</Link>
             <Link className="bg-blue rounded-xl p-2 w-32 text-center ml-4 text-nowrap" to="/flash-cards">Flash Cards</Link>

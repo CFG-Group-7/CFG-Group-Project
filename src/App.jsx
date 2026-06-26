@@ -7,10 +7,13 @@ export default function App() {
 
     return (
 
-        <>
+        <main className="min-h-screen bg-pale-green py-12 px-6 md:px-12">
+            <section className="mx-auto max-w-7xl text-center">
 
-            <div className="text-center">
-                <h1>Welcome to Zoopedia</h1>
+            <div className="text-center mb-10">
+                <h1 className="page-title mb-4 text-4xl font-bold text-fontColour">
+                    Welcome to Zoopedia
+                </h1>
             </div>
             <FunFact />
             <div className="flex ml-6 mr-6">
@@ -47,7 +50,8 @@ export default function App() {
                 </div>
             </div>
 
-        </>
+        </section>
+        </main>
     );
 }
 
