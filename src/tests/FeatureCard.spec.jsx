@@ -9,7 +9,7 @@ describe('FeatureCard.jsx tests', () => {
     afterEach(() => {
         cleanup(); // cleaning the dom between tests 
 
-    })
+    });
 
     test('renders the feature card for the search component', () => {
 
@@ -51,5 +51,5 @@ describe('FeatureCard.jsx tests', () => {
 
 
 
-})
+});
 

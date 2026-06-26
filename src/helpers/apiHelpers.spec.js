@@ -138,20 +138,20 @@ describe('findAnimal tests - happy path', () => {
 
     test('finds the searched animal name in the passed in object when the animal name is of correct format ', () => {
 
-        expect(findAnimal(animals, "lion")).toEqual(lionObject)
+        expect(findAnimal(animals, "lion")).toEqual(lionObject);
 
-    })
+    });
 
     test('finds the searched animal name in the passed in object when the animal name is capitalised', () => {
-        expect(findAnimal(animals, "Lion")).toEqual(lionObject)
+        expect(findAnimal(animals, "Lion")).toEqual(lionObject);
     });
 
     test('finds the searched animal name in the passed in object when the animal name is all capiital letters', () => {
-        expect(findAnimal(animals, "LION")).toEqual(lionObject)
+        expect(findAnimal(animals, "LION")).toEqual(lionObject);
     });
 
     test('finds the searched animal name in the passed in object when the animal name is longer than one word', () => {
-        expect(findAnimal(animals, "Cape Lion")).toEqual(capeLionObject)
+        expect(findAnimal(animals, "Cape Lion")).toEqual(capeLionObject);
     });
     test('finds the first object with the searched animal name  when the searched animal name occurs twice in the array', () => {
         expect(findAnimal(animals, "lion")).toEqual(lionObject);
@@ -163,17 +163,17 @@ describe('findAnimal tests - happy path', () => {
 describe('findAnimal tests - error cases ', () => {
     test('returns undefined when the searched animal does not exist in the animals array', () => {
 
-        expect(findAnimal(animals, "cat")).toEqual(undefined)
+        expect(findAnimal(animals, "cat")).toEqual(undefined);
 
-    })
-
-    test('returns undefined when the searched animal name contains non-letters', () => {
-        expect(findAnimal(animals, "Lion1")).toEqual(undefined)
-        expect(findAnimal(animals, "lio%n")).toEqual(undefined)
-        expect(findAnimal(animals, "li282%n")).toEqual(undefined)
     });
 
-})
+    test('returns undefined when the searched animal name contains non-letters', () => {
+        expect(findAnimal(animals, "Lion1")).toEqual(undefined);
+        expect(findAnimal(animals, "lio%n")).toEqual(undefined);
+        expect(findAnimal(animals, "li282%n")).toEqual(undefined);
+    });
+
+});
 
 //formatAnimals function 
 
@@ -192,7 +192,7 @@ describe('formatAnimal tests - happy path', () => {
         expect(keyLength2).toBe(17);
 
 
-    })
+    });
 
     test('always returns the same properties after formatting', () => {
 
@@ -240,7 +240,7 @@ describe('formatAnimal tests - happy path', () => {
                     weight: fakeLion.characteristics?.weight
                 }
             });
-    })
+    });
 
 
-})
+});

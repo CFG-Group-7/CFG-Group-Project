@@ -13,7 +13,7 @@ const Score = ({ score, setScore,
         setCurrentQ(0);
         setQuizStarted(false);
         if (setIsLastQ)
-            setIsLastQ(false)
+            setIsLastQ(false);
     };
 
     return (

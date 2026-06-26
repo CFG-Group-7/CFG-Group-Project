@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import Search from '../../pages/Search';
 import userEvent from "@testing-library/user-event";
-import "@testing-library/jest-dom/vitest"
+import "@testing-library/jest-dom/vitest";
 
 
 vi.mock('../../AnimalContext', () => ({
@@ -14,15 +14,14 @@ vi.mock('../../AnimalContext', () => ({
 
 describe('search', () => {
     beforeEach(() => {
-
-        global.fetch = vi.fn()
-    })
+        global.fetch = vi.fn();
+    });
 
     afterEach(() => {
         vi.resetAllMocks();
         cleanup();
 
-    })
+    });
 
 
     test('the component renders successfully', async () => {

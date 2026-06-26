@@ -26,10 +26,16 @@ export default function FunFact() {
 
 
     return (
-        <div className="text-center">
-            <h2>Fun Fact!</h2>
-            <p>{factList[index]}</p>
-        </div>
-    )
+        <section className="mx-auto max-w-6xl rounded-[2rem] bg-orange px-8 py-12 text-center shadow-sm md:px-16 md:py-16">
+            <h2 className="mb-6 text-3xl font-medium text-fontColour">
+                Fun Fact!
+            </h2>
+
+
+            <p className="mx-auto max-w-3xl text-xl text-fontColour">
+                {factList[index]}
+            </p>
+        </section>
+    );
 
 }

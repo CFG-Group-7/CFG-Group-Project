@@ -93,7 +93,7 @@ export const handler = async (event) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ error: 'Failed to fetch data' })
+            body: JSON.stringify({ error: 'Failed to fetch data', errorStack: error })
         };
     }
 };

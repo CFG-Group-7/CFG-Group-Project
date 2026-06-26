@@ -6,9 +6,9 @@ export default function FlashCardsPage() {
     // array of default animal names from the context 
     const { animals, searchData, cacheSearchData } = useAnimals();
     const [currentIndex, setCurrentIndex] = useState(0);
-    const currentName = animals[currentIndex]; // animals[0] - 'camel'
+    const currentName = animals[currentIndex];
 
-    // here, we are checking if Rachel has camels, if she doesnt then we have to go and find them ourselves 
+
     const animalData = searchData.find((animal) => animal.animalName.toLowerCase() === currentName.toLowerCase()); // looks at each animal name from the search results and checks if it exists in the list of animal names from the default list 
 
     const [error, setError] = useState(null);
@@ -34,16 +34,16 @@ export default function FlashCardsPage() {
         setCurrentIndex(0);
     };
 
+
+
     useEffect(() => {
         if (animalData) return;// a guard that checks if we already have the data for the animal 
 
         fetchAnimal(currentName)
             .then((data) => {
                 cacheSearchData(data);
-            }).catch((err) => {
+            }).catch(() => {
                 setError(true);
-            }).finally(() => {
-
             });
     }, [currentName, animalData, cacheSearchData]);
 
