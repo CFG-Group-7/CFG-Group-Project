@@ -36,7 +36,7 @@ Then start the application using the following command:
 
 
 ## :gorilla: Environment Variables
-To run this project, you will need to add the following environment variables to your `.env` file
+To run this project, you will need to add the following environment variables to your `.env` file:
 
 `API_KEY`
 
@@ -50,6 +50,32 @@ Example: API_NINJAS_KEY=your_api_key_here
 
 
 ## :leopard: Running tests
-Test will be run in `vitest`
-To run tests, use the following command: 
+The test will be run with `vitest`. To run tests, use the following command: 
+
 `npm t`
+
+## 🐼 Team member roles and contributions: 
+- Iryna (Technical Lead): React project setup, serverless functions, Flashcard page, unit testing support, cross-component context, deployment.
+
+- Beth (Admin Lead): Quiz page, unit testing, Miro/Jira maintenance, report/presentation collation, development and testing support.
+
+- Rachel (Developer): Search page, unit testing.
+
+- Anna (Design Lead): Wireframe development, steered critical design choices, index.css setup, More Fun! (Reference) page.
+
+- Hannah (Developer): Quiz page, unit testing.
+
+- Kathryn (Developer): Home page, navigation bar, unit testing.
+
+
+
+
+
+
+
+
+
+
+
+
+
