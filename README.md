@@ -42,14 +42,18 @@ To run this project, you will need to add the following environment variables to
 
 `API_KEY`
 
-In order to request an API key, you need to go to this website: https://api-ninjas.com/api/animals
+In order to request an API key, you need to go follow these steps: 
 
-Press 'get free API key'.
+1. Go to this website: https://api-ninjas.com/api/animals
 
-Once you get it, copy it into your `.env` file.
+2. Press 'get free API key'.
+
+3. Once you get it, copy it into your `.env` file. 
 
 Example: API_NINJAS_KEY=your_api_key_here
 
+The repository contains an `.env.example` file for you to use. 
+Make a copy of this file and rename it to `.env` (without `.example`)
 
 ## :leopard: Running tests
 The test will be run with `vitest`. To run tests, use the following command: 
@@ -57,7 +61,7 @@ The test will be run with `vitest`. To run tests, use the following command:
 `npm t`
 
 ## 🐼 Team member roles and contributions: 
-- Iryna (Technical Lead): React project setup, serverless functions, Flashcard page, unit testing support, cross-component context, deployment.
+- Iryna (Technical Lead): React project setup, serverless functions, Flashcard page, unit testing, cross-component context, testing/styling support.
 
 - Beth (Admin Lead): Quiz page, unit testing, Miro/Jira maintenance, report/presentation collation, development and testing support.
 
