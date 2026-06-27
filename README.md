@@ -55,17 +55,17 @@ To run tests, use the following command:
 `npm t`
 
 ## 🐼 Team member roles and contributions: 
-Iryna (Technical Lead): React Project setup, Serverless functions, FlashCard page, Unit testing support, Cross-component Context, Deployment.
+- Iryna (Technical Lead): React Project setup, Serverless functions, FlashCard page, Unit testing support, Cross-component Context, Deployment.
 
-Beth (Admin Lead): Quiz Page, Unit Testing, Miro/Jira maintenance, Report/Presentation collation, Support when needed in development/testing.
+- Beth (Admin Lead): Quiz Page, Unit Testing, Miro/Jira maintenance, Report/Presentation collation, Support when needed in development/testing.
 
-Rachel (Developer): Search Page, Unit Tests.
+- Rachel (Developer): Search Page, Unit Tests.
 
-Anna (Design Lead): Wireframe development, Guiding critical design choices, Index.css set up, More Fun! (Reference) Page.
+- Anna (Design Lead): Wireframe development, Guiding critical design choices, Index.css set up, More Fun! (Reference) Page.
 
-Hannah (Developer): Quiz Page, Unit test.
+- Hannah (Developer): Quiz Page, Unit test.
 
-Kathryn (Developer): Home Page, Nav Bar, Unit tests.
+- Kathryn (Developer): Home Page, Nav Bar, Unit tests.
 
 
 
