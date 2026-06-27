@@ -1,6 +1,8 @@
 
 # :lion: Zoopedia :tiger:
 
+https://zoopedia-cfg.netlify.app/
+
 ### :orangutan: Concept
 Zoopedia is an interactive web app designed for Key Stage 1 primary school children (age 4-7) to explore and learn about zoo animals.
 
