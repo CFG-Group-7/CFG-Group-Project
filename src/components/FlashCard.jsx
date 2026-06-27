@@ -10,6 +10,8 @@ export default function FlashCard({ animal }) {
         { label: "Lifespan", value: animal.characteristics.lifespan },
         { label: "Top speed", value: animal.characteristics.top_speed },
         { label: "Group", value: animal.characteristics.group },
+        { label: "Weight", value: animal.characteristics.weight },
+        { label: "prey", value: animal.characteristics.prey }
     ].filter((fact) => fact.value).slice(0, 4);
 
     const image = animal.images.fullImage || animal.images.thumbnail; // a fallback in case some animals don't have a full image

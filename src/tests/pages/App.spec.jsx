@@ -23,8 +23,8 @@ describe('App.jsx tests', () => {
     test('renders the welcome message', () => {
         renderWithProvider();
 
-        expect(screen.getByText("Welcome to Zoopedia")).toBeInTheDocument();
-        expect(screen.getByText("Welcome to Zoopedia")).toBeVisible();
+        expect(screen.getByText("Welcome Explorer!")).toBeInTheDocument();
+        expect(screen.getByText("Welcome Explorer!")).toBeVisible();
 
     });
 

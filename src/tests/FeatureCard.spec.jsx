@@ -43,7 +43,7 @@ describe('FeatureCard.jsx tests', () => {
         );
 
         const link = screen.getByRole('link', {
-            name: /lets go/i,
+            name: /let's go/i,
         });
 
         expect(link).toHaveAttribute('href', '/search');
