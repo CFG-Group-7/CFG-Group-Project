@@ -50,22 +50,22 @@ Example: API_NINJAS_KEY=your_api_key_here
 
 
 ## :leopard: Running tests
-Test will be run in `vitest`
-To run tests, use the following command: 
+The test will be run with `vitest`. To run tests, use the following command: 
+
 `npm t`
 
 ## 🐼 Team member roles and contributions: 
-- Iryna (Technical Lead): React Project setup, Serverless functions, FlashCard page, Unit testing support, Cross-component Context, Deployment.
+- Iryna (Technical Lead): React project setup, serverless functions, Flashcard page, unit testing support, cross-component context, deployment.
 
-- Beth (Admin Lead): Quiz Page, Unit Testing, Miro/Jira maintenance, Report/Presentation collation, Support when needed in development/testing.
+- Beth (Admin Lead): Quiz page, unit testing, Miro/Jira maintenance, report/presentation collation, development and testing support.
 
-- Rachel (Developer): Search Page, Unit Tests.
+- Rachel (Developer): Search page, unit testing.
 
-- Anna (Design Lead): Wireframe development, Guiding critical design choices, Index.css set up, More Fun! (Reference) Page.
+- Anna (Design Lead): Wireframe development, steered critical design choices, index.css setup, More Fun! (Reference) page.
 
-- Hannah (Developer): Quiz Page, Unit test.
+- Hannah (Developer): Quiz page, unit testing.
 
-- Kathryn (Developer): Home Page, Nav Bar, Unit tests.
+- Kathryn (Developer): Home page, navigation bar, unit testing.
 
 
 
