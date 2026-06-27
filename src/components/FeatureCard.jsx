@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function FeatureCard(props) {
     return (
-        <div>
-            <h2 className="text-xl">{props.title}</h2>
-            <p className="mb-2">{props.description}</p>
-            <Link className="bg-dark-green text-[#FEFAE0] font-[irish-grover] text-base rounded-xl p-1 px-8" to={props.pageLink}>Lets go</Link>
+        <div className="flex flex-col min-h-50 h-full justify-between">
+            <h2 className="text-3xl pb-6">{props.title}</h2>
+            <p className="mb-8 text-xl">{props.description}</p>
+            <div className="mt-auto">
+                <Link className="py-3 bg-dark-green text-white font-logo text-2xl rounded-xl p-1 px-16" to={props.pageLink}>Lets go {'>'}</Link>
+            </div>
         </div>
     );
 }

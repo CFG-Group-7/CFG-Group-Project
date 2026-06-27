@@ -12,7 +12,7 @@ export default function FunFact() {
         "Rats are ticklish, and they laugh when they are tickled.",
         "The chicken is the closest living relative to the T-Rex.",
         "Octopuses have nine brains. (And cows have four stomachs!)",
-        "Jellyfish have no brain, heart, bones, or eyes, and they’ve been around since before the dinosaurs.",
+        "Jellyfish have no brain, heart, bones, or eyes, and they've been around since before the dinosaurs.",
         "Great white sharks have over 300 teeth arranged in up to seven rows, and they grow new teeth almost constantly.",
         "Hummingbirds lay some of the smallest eggs of any bird—the smallest are the size of a pea.",
         "Owls can turn their heads almost 360 degrees (a complete circle) but they cannot move their eyes.",
@@ -26,13 +26,13 @@ export default function FunFact() {
 
 
     return (
-        <section className="mx-auto max-w-6xl rounded-[2rem] bg-orange px-8 py-12 text-center shadow-sm md:px-16 md:py-16">
-            <h2 className="mb-6 text-3xl font-medium text-fontColour">
+        <section className="mx-auto max-w-6xl rounded-[2rem] bg-orange px-8 py-12 text-center shadow-sm md:px-14 md:py-14">
+            <h2 className="mb-6 text-3xl text-fontColour">
                 Fun Fact!
             </h2>
 
 
-            <p className="mx-auto max-w-3xl text-xl text-fontColour">
+            <p className="mx-auto max-w-3xl text-2xl text-fontColour">
                 {factList[index]}
             </p>
         </section>
