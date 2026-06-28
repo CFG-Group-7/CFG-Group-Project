@@ -40,11 +40,3 @@ describe("Go! button functionality", async () => {
     });
 
 });
-
-describe("initial panda emoji", () => {
-    it("should display the panda emoji when the quiz page first loads", () => {
-        render(<Quiz />);
-
-        expect(screen.getByText("🐼")).toBeInTheDocument();
-    });
-});

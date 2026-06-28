@@ -26,16 +26,12 @@ describe('NavBar Component', () => {
         // render NavBar
         renderNavBar();
         // expect all nav links
-        expect(screen.getByRole('link', { name: /home/i})).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /search/i})).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /flash cards/i})).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /quiz/i})).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /more fun/i})).toBeInTheDocument();
-
-
-        //heading
-        const heading = await screen.findByRole('heading');
-        expect(heading).toHaveTextContent('Zoopedia');
+        expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /search/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /flash cards/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /quiz/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /more fun/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /zoopedia/i })).toBeInTheDocument();
     });
 
     test('the nav links render with correct destinations', async () => {
@@ -44,11 +40,11 @@ describe('NavBar Component', () => {
 
         //define expected links and their paths
         const expectedLinks = [
-            { text: 'Home', path: '/'},
-            { text: 'Search', path: '/search'},
-            { text: 'Flash Cards', path: '/flash-cards'},
-            { text: 'Quiz', path: '/quiz'},
-            { text: 'More Fun', path: '/more-fun'}
+            { text: 'Home', path: '/' },
+            { text: 'Search', path: '/search' },
+            { text: 'Flash Cards', path: '/flash-cards' },
+            { text: 'Quiz', path: '/quiz' },
+            { text: 'More Fun', path: '/more-fun' }
         ];
 
         //test the links
