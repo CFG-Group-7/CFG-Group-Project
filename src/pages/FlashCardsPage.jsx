@@ -57,7 +57,7 @@ export default function FlashCardsPage() {
     return (
         <div className="min-h-screen bg-pale-green">
             <div className="flex flex-col items-center justify-center gap-y-3 pb-5">
-                <h1 className="text-3xl font-bold text-fontColour">Test your knowledge</h1>
+                <h1 className="mt-10 font-logo text-3xl text-fontColour">Test your knowledge</h1>
                 <p className="font-bold text-fontColour">
                     Revise what you've already learned!
                 </p>
