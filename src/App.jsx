@@ -2,6 +2,7 @@
 
 import FeatureCard from "./components/FeatureCard";
 import FunFact from './components/FunFact';
+import LionImage from '../src/images/lion.svg?react'
 
 export default function App() {
 
@@ -11,6 +12,9 @@ export default function App() {
             <section className="mx-auto max-w-7xl text-center">
 
                 <div className="text-center mb-10">
+                    <div className=" flex justify-center items-center">
+                        <LionImage width={70} height={70} />
+                    </div>
                     <h1 className="font-logo page-title mb-4 text-4xl text-fontColour">
                         Welcome Explorer!
                     </h1>

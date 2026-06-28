@@ -6,7 +6,7 @@ import qBank from '../components/Quiz/questionBank';
 import Questions from '../components/Quiz/Questions';
 //import Score logic
 import Score from '../components/Quiz/Score';
-
+import KoalaImage from '../images/koala.svg?react';
 
 
 const Quiz = () => {
@@ -71,9 +71,13 @@ const Quiz = () => {
     };
 
     return (
+
         <div className="min-h-screen bg-pale-green flex items-center justify-center">
+
             <div className="bg-green p-8 flex flex-col items-center rounded-xl  max-w-2xl w-full text-center">
-                <h1 className="text-5xl">🐼</h1>
+                <div className="justify-center">
+                    <KoalaImage width={70} height={70} />
+                </div>
                 <h1 className="text-fontColour text-6xl pb-6 font-bold">Quiz</h1>
 
                 {/* If quiz not started, display initial page */}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAnimals } from "../AnimalContext";
+import MonkeyImage from '../images/monkey.svg?react'
 
 export default function Search() {
     // these are context setters for flashcards 
@@ -60,6 +61,9 @@ export default function Search() {
 
                 {/* Heading */}
                 <div className="text-center mb-8">
+                    <div className=" flex justify-center items-center">
+                        <MonkeyImage width={70} height={70} />
+                    </div>
                     <h1 className="text-5xl font-bold text-fontColour mb-3">
                         Find an Animal
                     </h1>
